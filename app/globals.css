@@ -1,26 +1,168 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfaf9;
+  --foreground: #1a1a1a;
+  --rose: #cd8b91;
+  --rose-dark: #b8717a;
+  --rose-light: #e8a8ae;
+  --blush: #ffe5e8;
+  --blush-light: #fdf5f6;
+  --navy: #304254;
+  --navy-dark: #222f3e;
+  --cream: #faf6f4;
+  --text-primary: #1a1a1a;
+  --text-secondary: #5a5a5a;
+  --text-muted: #9a9a9a;
+  --border: #ecdcde;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-rose: var(--rose);
+  --color-rose-dark: var(--rose-dark);
+  --color-rose-light: var(--rose-light);
+  --color-blush: var(--blush);
+  --color-blush-light: var(--blush-light);
+  --color-navy: var(--navy);
+  --color-navy-dark: var(--navy-dark);
+  --color-cream: var(--cream);
+  --color-border: var(--border);
+  --font-display: var(--font-ballet);
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-dm-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-primary);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--blush-light);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--rose-light);
+  border-radius: 3px;
+}
+
+/* Fade animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease forwards;
+}
+
+/* Delay utilities */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Initially hidden for animation */
+.initially-hidden {
+  opacity: 0;
+}
+
+/* Prose overrides for article content */
+.prose-rose a {
+  color: var(--rose);
+  text-decoration: none;
+}
+.prose-rose a:hover {
+  color: var(--rose-dark);
+  text-decoration: underline;
+}
+
+/* Image zoom on hover — wraps next/image */
+.img-zoom {
+  overflow: hidden;
+  position: relative;
+}
+.img-zoom img {
+  transition: transform 0.5s ease;
+}
+.img-zoom:hover img {
+  transform: scale(1.06);
+}
+
+/* Instagram post hover card */
+.insta-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.insta-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(205,139,145,0.2);
+}
+
+/* Masonry grid responsive */
+.masonry-grid {
+  columns: 3;
+  column-gap: 12px;
+}
+@media (max-width: 768px) {
+  .masonry-grid { columns: 2; }
+}
+@media (max-width: 480px) {
+  .masonry-grid { columns: 1; }
+}
+
+/* Portfolio grid responsive */
+@media (max-width: 640px) {
+  .portfolio-preview-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .instagram-preview-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
 }
