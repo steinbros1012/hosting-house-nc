@@ -421,7 +421,7 @@ export default function InquiryPage() {
                     marginBottom: "16px",
                   }}
                 >
-                  &ldquo;Think of us as your partner in planning — we are here to
+                  &ldquo;Think of us as your partner in planning. We are here to
                   make this fun, not stressful.&rdquo;
                 </p>
                 <p

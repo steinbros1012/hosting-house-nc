@@ -45,8 +45,8 @@ const services = [
     title: "Event Design & Styling",
     tagline: "Your aesthetic vision, brought to life in every detail.",
     description: [
-      "A beautiful event is more than pretty decor — it's a cohesive experience that tells a story from the moment guests arrive. We develop a complete design vision for your celebration and execute it with precision.",
-      "From color palettes and tablescapes to lighting design and custom installations, we create environments that feel intentional, elevated, and unmistakably yours.",
+      "A beautiful event is more than pretty decor. It is a cohesive experience that tells a story from the moment guests arrive. We develop a complete design vision for your celebration and bring it to life.",
+      "From color palettes and tablescapes to lighting design and custom installations, we create environments that feel elevated and unmistakably yours.",
     ],
     image:
       "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=800&q=80",
@@ -72,10 +72,10 @@ const services = [
     id: "florals",
     label: "Floral Design",
     title: "Custom Floral Design",
-    tagline: "Lush, intentional arrangements that set the tone.",
+    tagline: "Beautiful arrangements that set the tone for your celebration.",
     description: [
       "Flowers have a way of saying everything words cannot. We design custom floral arrangements that feel alive and seasonal, using blooms chosen to complement your color palette and event aesthetic.",
-      "From bridal bouquets and ceremony arches to statement centerpieces and lush floral installations, every arrangement we create is thoughtfully designed and crafted with care.",
+      "From bridal bouquets and ceremony arches to statement centerpieces and floral installations, every arrangement we create is designed to complement your palette and make the space feel alive.",
     ],
     image:
       "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=800&q=80",

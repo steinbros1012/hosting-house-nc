@@ -22,14 +22,14 @@ const services = [
   {
     title: "Event Design",
     description:
-      "We translate your vision into a cohesive aesthetic experience — from tablescapes and lighting to custom decor that tells your story.",
+      "We translate your vision into a cohesive aesthetic experience, from tablescapes and lighting to custom decor that tells your story.",
     icon: "◇",
     href: "/services#design",
   },
   {
     title: "Floral Design",
     description:
-      "Lush, intentional floral arrangements that set the tone for your celebration — centerpieces, installations, bridal florals, and more.",
+      "Beautiful floral arrangements that set the tone for your celebration: centerpieces, installations, bridal florals, and more.",
     icon: "❀",
     href: "/services#florals",
   },
@@ -365,7 +365,7 @@ export default function HomePage() {
               }}
             >
               The Hosting House is the brainchild of Meredith Parker and
-              Susanna Thomas — two women who share a deep passion for
+              Susanna Thomas, two women who share a deep passion for
               hospitality, beautiful design, and the art of gathering.
             </p>
             <p

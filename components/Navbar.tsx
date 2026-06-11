@@ -86,7 +86,7 @@ export default function Navbar() {
             }}
           >
             <Image
-              src="/logo-blush.png"
+              src="/logo-transparent.svg"
               alt="The Hosting House NC"
               width={220}
               height={165}
@@ -191,7 +191,7 @@ export default function Navbar() {
         }}
       >
         <Image
-          src="/logo-blush.png"
+          src="/logo-transparent.svg"
           alt="The Hosting House NC"
           width={220}
           height={165}

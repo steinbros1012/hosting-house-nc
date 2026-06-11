@@ -13,9 +13,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/hostinghousenc";
 
 const featured = {
   src: "/images/instagram/post5.jpg",
-  alt: "Hosting House NC — beautiful event styling by Meredith and Susanna",
-  caption:
-    "A full floral arch installation for an outdoor ceremony — every bloom chosen with intention.",
+  alt: "Hosting House NC event styling by Meredith and Susanna",
 };
 
 const posts = [
@@ -165,19 +163,6 @@ export default function InstagramPage() {
             >
               Follow Our Journey
             </h1>
-            <p
-              style={{
-                fontFamily: "var(--font-cormorant)",
-                fontSize: "clamp(17px, 2vw, 22px)",
-                fontStyle: "italic",
-                fontWeight: 300,
-                color: "rgba(255,255,255,0.85)",
-                lineHeight: 1.6,
-                marginBottom: "36px",
-              }}
-            >
-              {featured.caption}
-            </p>
             <a
               href={INSTAGRAM_URL}
               target="_blank"
@@ -327,7 +312,7 @@ export default function InstagramPage() {
       >
         <AnimateIn>
           <Image
-            src="/logo-blush.png"
+            src="/logo-transparent.svg"
             width={160}
             height={120}
             alt="The Hosting House NC"

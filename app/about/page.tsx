@@ -13,7 +13,7 @@ const values = [
   {
     title: "Intentionality",
     description:
-      "Every decision we make — from the bloom selection to the table linen — is purposeful. We never settle for good enough when something can be genuinely beautiful.",
+      "Every decision we make, from the bloom selection to the table linen, is purposeful. We never settle for good enough when something can be genuinely beautiful.",
   },
   {
     title: "Warmth",
@@ -46,7 +46,7 @@ export default function AboutPage() {
             }}
           >
             <Image
-              src="/logo-blush.png"
+              src="/logo-transparent.svg"
               width={320}
               height={240}
               alt="The Hosting House NC"
