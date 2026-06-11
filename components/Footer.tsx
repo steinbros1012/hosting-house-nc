@@ -40,10 +40,11 @@ export default function Footer() {
           <div>
             <div style={{ marginBottom: "20px" }}>
               <Image
-                src="/logo.svg"
+                src="/logo-blush.png"
                 alt="The Hosting House NC"
-                width={72}
-                height={72}
+                width={160}
+                height={120}
+                style={{ height: "72px", width: "auto" }}
               />
             </div>
             <p

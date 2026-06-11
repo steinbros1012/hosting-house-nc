@@ -319,9 +319,8 @@ export default function HomePage() {
                 overflow: "hidden",
               }}
             >
-              {/* Founder photo — replace /images/founders.jpg with the real photo */}
               <Image
-                src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=800&q=80"
+                src="/images/founders.jpg"
                 alt="Meredith Parker and Susanna Thomas, founders of The Hosting House NC"
                 fill
                 style={{ objectFit: "cover", objectPosition: "center top" }}

@@ -14,7 +14,7 @@ interface InstagramPost {
 const PLACEHOLDER_POSTS: InstagramPost[] = [
   {
     id: "p1",
-    media_url: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&q=80",
+    media_url: "/images/instagram/post1.jpg",
     permalink: "https://www.instagram.com/hostinghousenc",
     caption: "The softest shades of pink for a Saturday bridal shower.",
     media_type: "IMAGE",
@@ -22,7 +22,7 @@ const PLACEHOLDER_POSTS: InstagramPost[] = [
   },
   {
     id: "p2",
-    media_url: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80",
+    media_url: "/images/instagram/post2.jpg",
     permalink: "https://www.instagram.com/hostinghousenc",
     caption: "When the tablescape does all the talking.",
     media_type: "IMAGE",
@@ -30,7 +30,7 @@ const PLACEHOLDER_POSTS: InstagramPost[] = [
   },
   {
     id: "p3",
-    media_url: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80",
+    media_url: "/images/instagram/post3.jpg",
     permalink: "https://www.instagram.com/hostinghousenc",
     caption: "For the bride who wanted garden-fresh and effortless.",
     media_type: "IMAGE",
@@ -38,7 +38,7 @@ const PLACEHOLDER_POSTS: InstagramPost[] = [
   },
   {
     id: "p4",
-    media_url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80",
+    media_url: "/images/instagram/post4.jpg",
     permalink: "https://www.instagram.com/hostinghousenc",
     caption: "Peonies are always the answer. Always.",
     media_type: "IMAGE",
@@ -46,7 +46,7 @@ const PLACEHOLDER_POSTS: InstagramPost[] = [
   },
   {
     id: "p5",
-    media_url: "https://images.unsplash.com/photo-1490750967868-88df5691cc57?w=600&q=80",
+    media_url: "/images/instagram/post5.jpg",
     permalink: "https://www.instagram.com/hostinghousenc",
     caption: "A full floral arch for an outdoor ceremony.",
     media_type: "IMAGE",
@@ -54,7 +54,7 @@ const PLACEHOLDER_POSTS: InstagramPost[] = [
   },
   {
     id: "p6",
-    media_url: "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=600&q=80",
+    media_url: "/images/instagram/post6.jpg",
     permalink: "https://www.instagram.com/hostinghousenc",
     caption: "Every detail of this dinner party felt just right.",
     media_type: "IMAGE",
@@ -62,7 +62,7 @@ const PLACEHOLDER_POSTS: InstagramPost[] = [
   },
   {
     id: "p7",
-    media_url: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80",
+    media_url: "/images/instagram/post7.jpg",
     permalink: "https://www.instagram.com/hostinghousenc",
     caption: "There is something magical about candlelight at golden hour.",
     media_type: "IMAGE",
@@ -70,7 +70,7 @@ const PLACEHOLDER_POSTS: InstagramPost[] = [
   },
   {
     id: "p8",
-    media_url: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80",
+    media_url: "/images/instagram/post9.jpg",
     permalink: "https://www.instagram.com/hostinghousenc",
     caption: "This one was personal. The bride cried. We all cried.",
     media_type: "IMAGE",
@@ -78,7 +78,7 @@ const PLACEHOLDER_POSTS: InstagramPost[] = [
   },
   {
     id: "p9",
-    media_url: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
+    media_url: "/images/instagram/post1.jpg",
     permalink: "https://www.instagram.com/hostinghousenc",
     caption: "Elevated holiday gathering for a group of 30.",
     media_type: "IMAGE",

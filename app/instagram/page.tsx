@@ -12,57 +12,57 @@ export const metadata: Metadata = {
 const INSTAGRAM_URL = "https://www.instagram.com/hostinghousenc";
 
 const featured = {
-  src: "https://images.unsplash.com/photo-1490750967868-88df5691cc57?w=1200&q=85",
-  alt: "Full floral arch installation for an outdoor ceremony",
+  src: "/images/instagram/post5.jpg",
+  alt: "Hosting House NC — beautiful event styling by Meredith and Susanna",
   caption:
     "A full floral arch installation for an outdoor ceremony — every bloom chosen with intention.",
 };
 
 const posts = [
   {
-    src: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&q=80",
-    alt: "Pink rose arrangement",
+    src: "/images/instagram/post1.jpg",
+    alt: "Hosting House NC event styling",
     caption: "The softest shades of pink for a Saturday bridal shower.",
   },
   {
-    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80",
-    alt: "Floral table centerpiece",
+    src: "/images/instagram/post2.jpg",
+    alt: "Hosting House NC floral design",
     caption: "When the tablescape does all the talking.",
   },
   {
-    src: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80",
-    alt: "Wedding bouquet",
+    src: "/images/instagram/post3.jpg",
+    alt: "Hosting House NC celebration",
     caption: "For the bride who wanted garden-fresh and effortless.",
   },
   {
-    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80",
-    alt: "Pastel bridal bouquet",
+    src: "/images/instagram/post4.jpg",
+    alt: "Hosting House NC floral arrangement",
     caption: "Peonies are always the answer. Always.",
   },
   {
-    src: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80",
-    alt: "Candlelit reception",
+    src: "/images/instagram/post5.jpg",
+    alt: "Hosting House NC reception styling",
     caption: "There is something magical about candlelight at golden hour.",
   },
   {
-    src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80",
-    alt: "Romantic event styling",
+    src: "/images/instagram/post6.jpg",
+    alt: "Hosting House NC event design",
     caption: "This one was personal. The bride cried. We all cried.",
   },
   {
-    src: "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=600&q=80",
-    alt: "Styled table setting",
+    src: "/images/instagram/post7.jpg",
+    alt: "Hosting House NC table setting",
     caption: "Every detail of this dinner party felt just right.",
   },
   {
-    src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
-    alt: "Elegant dinner party",
-    caption: "Elevated holiday gathering for a group of 30.",
+    src: "/images/instagram/post9.jpg",
+    alt: "Hosting House NC outdoor wedding",
+    caption: "Summer under the trees. Could not have dreamed it better.",
   },
   {
-    src: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=600&q=80",
-    alt: "Outdoor summer wedding",
-    caption: "Summer under the trees. Could not have dreamed it better.",
+    src: "/images/instagram/post1.jpg",
+    alt: "Hosting House NC gathering",
+    caption: "Elevated holiday gathering for a group of 30.",
   },
 ];
 
@@ -290,7 +290,7 @@ export default function InstagramPage() {
           {/* 3-col grid — all link to Instagram */}
           <div className="ig-editorial-grid">
             {posts.map((post, i) => (
-              <AnimateIn key={post.src} delay={i * 55} direction="scale">
+              <AnimateIn key={i} delay={i * 55} direction="scale">
                 <a
                   href={INSTAGRAM_URL}
                   target="_blank"
@@ -327,9 +327,9 @@ export default function InstagramPage() {
       >
         <AnimateIn>
           <Image
-            src="/logo.svg"
+            src="/logo-blush.png"
             width={160}
-            height={64}
+            height={120}
             alt="The Hosting House NC"
             style={{ height: "56px", width: "auto", marginBottom: "32px" }}
           />

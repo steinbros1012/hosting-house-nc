@@ -46,9 +46,9 @@ export default function AboutPage() {
             }}
           >
             <Image
-              src="/logo.svg"
+              src="/logo-blush.png"
               width={320}
-              height={210}
+              height={240}
               alt="The Hosting House NC"
               priority
               style={{ maxWidth: "min(320px, 72vw)", height: "auto" }}
@@ -93,9 +93,8 @@ export default function AboutPage() {
                   overflow: "hidden",
                 }}
               >
-                {/* Founder photo — drop your real photo at /public/images/founders.jpg to replace this */}
                 <Image
-                  src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=800&q=80"
+                  src="/images/founders.jpg"
                   alt="Meredith Parker and Susanna Thomas, founders of The Hosting House NC"
                   fill
                   style={{ objectFit: "cover", objectPosition: "center top" }}

@@ -86,10 +86,10 @@ export default function Navbar() {
             }}
           >
             <Image
-              src="/logo.svg"
+              src="/logo-blush.png"
               alt="The Hosting House NC"
               width={220}
-              height={88}
+              height={165}
               priority
               style={{
                 height: scrolled ? "48px" : "62px",
@@ -191,10 +191,10 @@ export default function Navbar() {
         }}
       >
         <Image
-          src="/logo.svg"
+          src="/logo-blush.png"
           alt="The Hosting House NC"
           width={220}
-          height={88}
+          height={165}
           style={{ height: "70px", width: "auto", marginBottom: "8px" }}
         />
         {navLinks.map(({ href, label }) => (
