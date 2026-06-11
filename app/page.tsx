@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimateIn from "@/components/AnimateIn";
 import ServiceCard from "@/components/ServiceCard";
+import InstagramFeed from "@/components/InstagramFeed";
 
 export const metadata: Metadata = {
   title: "The Hosting House NC — Boutique Event Planning & Floral Design",
@@ -88,14 +89,6 @@ const testimonials = [
   },
 ];
 
-const instagramImages = [
-  "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=400&q=80",
-  "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80",
-  "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80",
-  "https://images.unsplash.com/photo-1490750967868-88df5691cc57?w=400&q=80",
-  "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&q=80",
-];
 
 export default function HomePage() {
   return (
@@ -117,15 +110,16 @@ export default function HomePage() {
           alt="Beautifully designed event with lush florals"
           fill
           priority
-          style={{ objectFit: "cover", objectPosition: "center" }}
+          style={{ objectFit: "cover", objectPosition: "center 40%" }}
           sizes="100vw"
         />
+        {/* Softer overlay so logo reads clearly */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to bottom, rgba(30,20,20,0.3) 0%, rgba(30,20,20,0.5) 50%, rgba(30,20,20,0.7) 100%)",
+              "linear-gradient(to bottom, rgba(20,15,15,0.18) 0%, rgba(20,15,15,0.52) 60%, rgba(20,15,15,0.72) 100%)",
           }}
         />
         <div
@@ -137,59 +131,36 @@ export default function HomePage() {
             maxWidth: "800px",
           }}
         >
+          {/* Logo SVG — white-filtered for full readability on any background */}
+          <div className="animate-fade-up" style={{ marginBottom: "28px" }}>
+            <Image
+              src="/logo.svg"
+              width={340}
+              height={230}
+              alt="The Hosting House NC"
+              className="hero-logo-white"
+              style={{ maxWidth: "min(340px, 70vw)", height: "auto" }}
+            />
+          </div>
           <p
-            className="animate-fade-up"
-            style={{
-              fontFamily: "var(--font-dm-sans)",
-              fontSize: "12px",
-              fontWeight: 500,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "#e8a8ae",
-              marginBottom: "20px",
-            }}
-          >
-            North Carolina&apos;s Boutique Studio
-          </p>
-          <h1
             className="animate-fade-up delay-100"
             style={{
-              fontFamily: "var(--font-ballet)",
-              fontSize: "clamp(52px, 9vw, 100px)",
-              fontWeight: 400,
-              color: "#ffffff",
-              lineHeight: 1.05,
-              marginBottom: "24px",
-              textShadow: "0 2px 30px rgba(0,0,0,0.25)",
-            }}
-          >
-            The Hosting House
-          </h1>
-          <p
-            className="animate-fade-up delay-200"
-            style={{
               fontFamily: "var(--font-cormorant)",
-              fontSize: "clamp(18px, 2.5vw, 24px)",
+              fontSize: "clamp(17px, 2.2vw, 22px)",
               fontWeight: 300,
               fontStyle: "italic",
-              color: "rgba(255,255,255,0.9)",
-              lineHeight: 1.65,
-              marginBottom: "44px",
-              maxWidth: "540px",
-              margin: "0 auto 44px",
+              color: "rgba(255,255,255,0.92)",
+              lineHeight: 1.7,
+              marginBottom: "40px",
+              maxWidth: "520px",
+              margin: "0 auto 40px",
             }}
           >
             Creating beautiful, thoughtfully crafted celebrations for life&apos;s
             most meaningful moments.
           </p>
           <div
-            className="animate-fade-up delay-300"
-            style={{
-              display: "flex",
-              gap: "16px",
-              justifyContent: "center",
-              flexWrap: "wrap",
-            }}
+            className="animate-fade-up delay-200 hero-ctas"
           >
             <Link
               href="/inquiry"
@@ -226,6 +197,42 @@ export default function HomePage() {
               View Portfolio
             </Link>
           </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div
+          className="animate-fade-in delay-500"
+          style={{
+            position: "absolute",
+            bottom: "36px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 10,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: "10px",
+              fontWeight: 500,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.5)",
+            }}
+          >
+            Scroll
+          </p>
+          <div
+            style={{
+              width: "1px",
+              height: "40px",
+              backgroundColor: "rgba(255,255,255,0.35)",
+            }}
+          />
         </div>
       </section>
 
@@ -281,11 +288,12 @@ export default function HomePage() {
                 overflow: "hidden",
               }}
             >
+              {/* Founder photo — replace /images/founders.jpg with the real photo */}
               <Image
-                src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80"
-                alt="Event founders working on floral design"
+                src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=800&q=80"
+                alt="Meredith Parker and Susanna Thomas, founders of The Hosting House NC"
                 fill
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "cover", objectPosition: "center top" }}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -529,7 +537,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* INSTAGRAM PREVIEW */}
+      {/* LIVE INSTAGRAM FEED */}
       <section className="section-lg" style={{ backgroundColor: "#fdf5f6" }}>
         <div className="container">
           <AnimateIn style={{ textAlign: "center", marginBottom: "48px" }}>
@@ -544,12 +552,12 @@ export default function HomePage() {
                 marginBottom: "16px",
               }}
             >
-              Follow Along
+              Follow Our Journey
             </p>
             <h2
               style={{
                 fontFamily: "var(--font-ballet)",
-                fontSize: "clamp(28px, 4vw, 44px)",
+                fontSize: "clamp(28px, 4vw, 48px)",
                 fontWeight: 400,
                 color: "#304254",
                 marginBottom: "12px",
@@ -562,38 +570,17 @@ export default function HomePage() {
                 fontFamily: "var(--font-dm-sans)",
                 fontSize: "15px",
                 color: "#5a5a5a",
+                lineHeight: 1.7,
+                maxWidth: "420px",
+                margin: "0 auto",
               }}
             >
-              Behind the scenes, fresh arrangements, and event inspiration
+              Behind the scenes, fresh arrangements, and real moments from our studio.
             </p>
           </AnimateIn>
 
-          <div className="instagram-preview-grid">
-            {instagramImages.map((src, i) => (
-              <AnimateIn key={src} delay={i * 60} direction="scale">
-                <a
-                  href="https://www.instagram.com/hostinghousenc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="img-zoom"
-                  style={{
-                    display: "block",
-                    aspectRatio: "1/1",
-                    position: "relative",
-                    borderRadius: "2px",
-                  }}
-                >
-                  <Image
-                    src={src}
-                    alt="Instagram post from @hostinghousenc"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(max-width: 768px) 33vw, 16vw"
-                  />
-                </a>
-              </AnimateIn>
-            ))}
-          </div>
+          {/* Live feed — auto-updates when INSTAGRAM_ACCESS_TOKEN is set */}
+          <InstagramFeed limit={6} />
 
           <AnimateIn style={{ textAlign: "center" }}>
             <a
@@ -606,15 +593,22 @@ export default function HomePage() {
                 fontWeight: 500,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "#304254",
-                border: "1px solid #304254",
-                padding: "14px 36px",
+                color: "#ffffff",
+                backgroundColor: "#cd8b91",
+                padding: "14px 40px",
                 borderRadius: "2px",
                 textDecoration: "none",
-                display: "inline-block",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
               }}
             >
-              Follow on Instagram
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+              </svg>
+              Follow Us on Instagram
             </a>
           </AnimateIn>
         </div>

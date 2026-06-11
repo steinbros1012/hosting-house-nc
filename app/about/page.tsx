@@ -35,70 +35,49 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      {/* PAGE HERO */}
-      <section
-        style={{
-          position: "relative",
-          height: "55vh",
-          minHeight: "420px",
-          display: "flex",
-          alignItems: "flex-end",
-          justifyContent: "center",
-          overflow: "hidden",
-          paddingBottom: "80px",
-        }}
-      >
-        <Image
-          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=2000&q=85"
-          alt="Elegantly styled event table"
-          fill
-          priority
-          style={{ objectFit: "cover", objectPosition: "center 60%" }}
-          sizes="100vw"
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to bottom, rgba(48,66,84,0.2) 0%, rgba(48,66,84,0.65) 100%)",
-          }}
-        />
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            textAlign: "center",
-            padding: "0 24px",
-          }}
-        >
-          <p
-            className="animate-fade-up"
+      {/* PAGE HERO — blush background with logo graphic, matching brand style */}
+      <section className="about-hero-blush">
+        <AnimateIn>
+          <div
             style={{
-              fontFamily: "var(--font-dm-sans)",
-              fontSize: "11px",
-              fontWeight: 600,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "#e8a8ae",
-              marginBottom: "16px",
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: "8px",
             }}
           >
-            Our Story
-          </p>
+            <Image
+              src="/logo.svg"
+              width={320}
+              height={210}
+              alt="The Hosting House NC"
+              priority
+              style={{ maxWidth: "min(320px, 72vw)", height: "auto" }}
+            />
+          </div>
           <h1
-            className="animate-fade-up delay-100"
+            style={{
+              fontFamily: "var(--font-ballet)",
+              fontSize: "clamp(44px, 7vw, 76px)",
+              fontWeight: 400,
+              color: "#cd8b91",
+              lineHeight: 1.1,
+              marginBottom: "8px",
+            }}
+          >
+            Meet the Team
+          </h1>
+          <p
             style={{
               fontFamily: "var(--font-cormorant)",
-              fontSize: "clamp(40px, 6vw, 72px)",
-              fontWeight: 400,
-              color: "#ffffff",
-              lineHeight: 1.1,
+              fontSize: "18px",
+              fontStyle: "italic",
+              color: "#b07a80",
+              fontWeight: 300,
             }}
           >
-            About The Hosting House
-          </h1>
-        </div>
+            The faces behind every beautiful celebration
+          </p>
+        </AnimateIn>
       </section>
 
       {/* FOUNDERS SECTION */}
@@ -114,11 +93,12 @@ export default function AboutPage() {
                   overflow: "hidden",
                 }}
               >
+                {/* Founder photo — drop your real photo at /public/images/founders.jpg to replace this */}
                 <Image
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+                  src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=800&q=80"
                   alt="Meredith Parker and Susanna Thomas, founders of The Hosting House NC"
                   fill
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "cover", objectPosition: "center top" }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
@@ -172,9 +152,10 @@ export default function AboutPage() {
                 marginBottom: "20px",
               }}
             >
-              The Hosting House was born from a friendship, a shared obsession
-              with Southern hospitality, and a belief that every celebration
-              deserves to be beautiful.
+              The Hosting House is the brainchild of Meredith Parker and Susanna
+              Thomas. Both of their roots are firmly planted in the South,
+              Meredith hailing originally from Nashville, TN and Susanna born in
+              Macon, GA and raised right here in Raleigh.
             </p>
             <p
               style={{
@@ -185,11 +166,10 @@ export default function AboutPage() {
                 marginBottom: "20px",
               }}
             >
-              Meredith grew up in Nashville, Tennessee, where she developed a
-              deep appreciation for gracious hosting and the way a well-designed
-              space can make people feel truly at home. Susanna was raised in
-              Raleigh, North Carolina, having spent her early years in Macon,
-              Georgia, where the art of gathering was woven into everyday life.
+              Through their friendship, they realized they shared a true love of
+              Southern hospitality and hosting. Together, they find joy in
+              creating beautiful, approachable, polished gatherings to celebrate
+              every milestone in life.
             </p>
             <p
               style={{
@@ -200,9 +180,9 @@ export default function AboutPage() {
                 marginBottom: "36px",
               }}
             >
-              When they found each other, they found a partner who shared the
-              same vision: a studio that could help anyone, for any occasion,
-              host with beauty, warmth, and genuine intention.
+              From baptisms and birthdays to corporate events and cocktail
+              parties, The Hosting House is here to greet you, offer you a drink,
+              and invite you in as we thoughtfully plan your next soiree.
             </p>
             <Link
               href="/inquiry"

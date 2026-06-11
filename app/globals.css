@@ -424,3 +424,90 @@ h1, h2, h3, h4 {
 @media (max-width: 400px) {
   .why-grid { grid-template-columns: 1fr; }
 }
+
+/* ─── Live Instagram Feed ─────────────────────────────────────── */
+
+.ig-live-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-bottom: 48px;
+}
+@media (max-width: 720px) {
+  .ig-live-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+}
+@media (max-width: 420px) {
+  .ig-live-grid { grid-template-columns: repeat(2, 1fr); gap: 3px; }
+}
+
+.ig-live-card {
+  display: block;
+  overflow: hidden;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.ig-live-img {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f5e8ea;
+}
+
+.ig-live-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+}
+
+.ig-live-card:hover .ig-live-img img {
+  transform: scale(1.06);
+}
+
+.ig-live-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(48, 66, 84, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  color: #ffffff;
+  opacity: 0;
+  transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+.ig-live-card:hover .ig-live-overlay {
+  background: rgba(48, 66, 84, 0.58);
+  opacity: 1;
+}
+
+.ig-live-caption {
+  font-family: var(--font-cormorant);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Hero logo — white variant for dark backgrounds */
+.hero-logo-white {
+  filter: brightness(0) invert(1);
+}
+
+/* About page blush hero */
+.about-hero-blush {
+  background-color: #fdf5f6;
+  padding-top: 120px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .about-hero-blush { padding-top: 100px; padding-bottom: 40px; }
+}
