@@ -1,25 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import AnimateIn from "@/components/AnimateIn";
-import InstagramFeed from "@/components/InstagramFeed";
-function InstagramIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-      <circle cx="12" cy="12" r="4"/>
-      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
-    </svg>
-  );
-}
-
-function ExternalLinkIcon({ size = 12 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-      <polyline points="15 3 21 3 21 9"/>
-      <line x1="10" y1="14" x2="21" y2="3"/>
-    </svg>
-  );
-}
 
 export const metadata: Metadata = {
   title: "Instagram",
@@ -27,31 +9,259 @@ export const metadata: Metadata = {
     "Follow @hostinghousenc on Instagram for behind-the-scenes content, fresh floral arrangements, and event inspiration.",
 };
 
+const INSTAGRAM_URL = "https://www.instagram.com/hostinghousenc";
+
+const featured = {
+  src: "https://images.unsplash.com/photo-1490750967868-88df5691cc57?w=1200&q=85",
+  alt: "Full floral arch installation for an outdoor ceremony",
+  caption:
+    "A full floral arch installation for an outdoor ceremony — every bloom chosen with intention.",
+};
+
+const posts = [
+  {
+    src: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&q=80",
+    alt: "Pink rose arrangement",
+    caption: "The softest shades of pink for a Saturday bridal shower.",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80",
+    alt: "Floral table centerpiece",
+    caption: "When the tablescape does all the talking.",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80",
+    alt: "Wedding bouquet",
+    caption: "For the bride who wanted garden-fresh and effortless.",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80",
+    alt: "Pastel bridal bouquet",
+    caption: "Peonies are always the answer. Always.",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80",
+    alt: "Candlelit reception",
+    caption: "There is something magical about candlelight at golden hour.",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80",
+    alt: "Romantic event styling",
+    caption: "This one was personal. The bride cried. We all cried.",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=600&q=80",
+    alt: "Styled table setting",
+    caption: "Every detail of this dinner party felt just right.",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
+    alt: "Elegant dinner party",
+    caption: "Elevated holiday gathering for a group of 30.",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=600&q=80",
+    alt: "Outdoor summer wedding",
+    caption: "Summer under the trees. Could not have dreamed it better.",
+  },
+];
+
+function InstagramIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+    </svg>
+  );
+}
 
 export default function InstagramPage() {
   return (
     <>
-      {/* HEADER */}
+      {/* HERO */}
       <section
         style={{
-          paddingTop: "140px",
-          paddingBottom: "56px",
+          position: "relative",
+          height: "70vh",
+          minHeight: "520px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          overflow: "hidden",
           textAlign: "center",
-          backgroundColor: "#fdf5f6",
-          paddingLeft: "20px",
-          paddingRight: "20px",
+        }}
+      >
+        <Image
+          src={featured.src}
+          alt={featured.alt}
+          fill
+          priority
+          style={{ objectFit: "cover", objectPosition: "center 30%" }}
+          sizes="100vw"
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.62) 60%, rgba(0,0,0,0.85) 100%)",
+          }}
+        />
+        <div
+          style={{
+            position: "relative",
+            zIndex: 10,
+            padding: "0 24px",
+            maxWidth: "680px",
+          }}
+        >
+          <AnimateIn>
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                backgroundColor: "rgba(255,255,255,0.12)",
+                border: "1px solid rgba(255,255,255,0.25)",
+                borderRadius: "100px",
+                padding: "8px 20px",
+                marginBottom: "24px",
+              }}
+            >
+              <span style={{ color: "#e8a8ae" }}>
+                <InstagramIcon size={14} />
+              </span>
+              <span
+                style={{
+                  fontFamily: "var(--font-dm-sans)",
+                  fontSize: "12px",
+                  fontWeight: 500,
+                  letterSpacing: "0.1em",
+                  color: "rgba(255,255,255,0.9)",
+                }}
+              >
+                @hostinghousenc
+              </span>
+            </div>
+            <h1
+              style={{
+                fontFamily: "var(--font-ballet)",
+                fontSize: "clamp(44px, 7vw, 80px)",
+                fontWeight: 400,
+                color: "#ffffff",
+                lineHeight: 1.1,
+                marginBottom: "20px",
+              }}
+            >
+              Follow Our Journey
+            </h1>
+            <p
+              style={{
+                fontFamily: "var(--font-cormorant)",
+                fontSize: "clamp(17px, 2vw, 22px)",
+                fontStyle: "italic",
+                fontWeight: 300,
+                color: "rgba(255,255,255,0.85)",
+                lineHeight: 1.6,
+                marginBottom: "36px",
+              }}
+            >
+              {featured.caption}
+            </p>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "var(--font-dm-sans)",
+                fontSize: "13px",
+                fontWeight: 500,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "#ffffff",
+                backgroundColor: "#cd8b91",
+                padding: "14px 36px",
+                borderRadius: "2px",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <InstagramIcon size={14} />
+              Follow Us on Instagram
+            </a>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* PULL QUOTE */}
+      <section
+        style={{
+          backgroundColor: "#304254",
+          padding: "72px 24px",
+          textAlign: "center",
         }}
       >
         <AnimateIn>
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "10px",
-              marginBottom: "20px",
-            }}
-          >
-            <span style={{ color: "#cd8b91" }}><InstagramIcon size={20} /></span>
+          <div style={{ maxWidth: "680px", margin: "0 auto" }}>
+            <p
+              style={{
+                fontFamily: "var(--font-cormorant)",
+                fontSize: "clamp(22px, 3.5vw, 36px)",
+                fontWeight: 300,
+                fontStyle: "italic",
+                color: "#ffffff",
+                lineHeight: 1.65,
+                marginBottom: "24px",
+              }}
+            >
+              &ldquo;Behind every beautiful event is a hundred tiny decisions
+              made with love. We share them all on Instagram.&rdquo;
+            </p>
+            <div
+              style={{
+                width: "40px",
+                height: "1px",
+                backgroundColor: "#cd8b91",
+                margin: "0 auto 16px",
+              }}
+            />
+            <p
+              style={{
+                fontFamily: "var(--font-dm-sans)",
+                fontSize: "12px",
+                fontWeight: 600,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "#cd8b91",
+              }}
+            >
+              Meredith &amp; Susanna
+            </p>
+          </div>
+        </AnimateIn>
+      </section>
+
+      {/* CURATED GRID */}
+      <section
+        style={{
+          backgroundColor: "#ffffff",
+          padding: "80px 20px",
+        }}
+      >
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <AnimateIn style={{ textAlign: "center", marginBottom: "56px" }}>
             <p
               style={{
                 fontFamily: "var(--font-dm-sans)",
@@ -60,152 +270,96 @@ export default function InstagramPage() {
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 color: "#cd8b91",
+                marginBottom: "14px",
               }}
             >
-              Follow Along
+              From the Feed
             </p>
+            <h2
+              style={{
+                fontFamily: "var(--font-cormorant)",
+                fontSize: "clamp(32px, 4vw, 48px)",
+                fontWeight: 400,
+                color: "#304254",
+              }}
+            >
+              A Few of Our Favorites
+            </h2>
+          </AnimateIn>
+
+          {/* 3-col grid — all link to Instagram */}
+          <div className="ig-editorial-grid">
+            {posts.map((post, i) => (
+              <AnimateIn key={post.src} delay={i * 55} direction="scale">
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ig-editorial-card"
+                >
+                  <div className="ig-editorial-img">
+                    <Image
+                      src={post.src}
+                      alt={post.alt}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="ig-editorial-overlay">
+                      <InstagramIcon size={22} />
+                      <p className="ig-editorial-caption">{post.caption}</p>
+                    </div>
+                  </div>
+                </a>
+              </AnimateIn>
+            ))}
           </div>
-          <h1
-            style={{
-              fontFamily: "var(--font-ballet)",
-              fontSize: "clamp(32px, 6vw, 64px)",
-              fontWeight: 400,
-              color: "#304254",
-              marginBottom: "16px",
-            }}
-          >
-            @hostinghousenc
-          </h1>
-          <p
-            style={{
-              fontFamily: "var(--font-dm-sans)",
-              fontSize: "16px",
-              color: "#5a5a5a",
-              lineHeight: 1.75,
-              maxWidth: "520px",
-              margin: "0 auto 36px",
-            }}
-          >
-            Behind the scenes, fresh arrangements, real events, and daily
-            inspiration from our studio.
-          </p>
-          <a
-            href="https://www.instagram.com/hostinghousenc"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontFamily: "var(--font-dm-sans)",
-              fontSize: "13px",
-              fontWeight: 500,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "#ffffff",
-              backgroundColor: "#cd8b91",
-              padding: "14px 36px",
-              borderRadius: "2px",
-              textDecoration: "none",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <InstagramIcon size={14} />
-            Follow on Instagram
-            <ExternalLinkIcon size={12} />
-          </a>
-        </AnimateIn>
-      </section>
-
-      {/* STATS BAR */}
-      <section
-        style={{
-          backgroundColor: "#304254",
-          padding: "28px 24px",
-        }}
-      >
-        <div className="stats-bar" style={{ maxWidth: "800px", margin: "0 auto" }}>
-          {[
-            { label: "Posts", value: "200+" },
-            { label: "Following", value: "Floral Lovers" },
-            { label: "NC Events", value: "50+ Served" },
-          ].map((stat) => (
-            <div key={stat.label} style={{ textAlign: "center" }}>
-              <p
-                style={{
-                  fontFamily: "var(--font-cormorant)",
-                  fontSize: "28px",
-                  fontWeight: 500,
-                  color: "#ffe5e8",
-                  marginBottom: "4px",
-                }}
-              >
-                {stat.value}
-              </p>
-              <p
-                style={{
-                  fontFamily: "var(--font-dm-sans)",
-                  fontSize: "11px",
-                  fontWeight: 600,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.5)",
-                }}
-              >
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* LIVE INSTAGRAM GRID */}
-      <section
-        style={{
-          backgroundColor: "#ffffff",
-          padding: "48px 20px 80px",
-        }}
-      >
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <InstagramFeed limit={12} />
         </div>
       </section>
 
       {/* FOLLOW CTA */}
       <section
         style={{
-          backgroundColor: "#ffe5e8",
-          padding: "80px 24px",
+          backgroundColor: "#fdf5f6",
+          padding: "100px 24px",
           textAlign: "center",
         }}
       >
         <AnimateIn>
+          <Image
+            src="/logo.svg"
+            width={160}
+            height={64}
+            alt="The Hosting House NC"
+            style={{ height: "56px", width: "auto", marginBottom: "32px" }}
+          />
           <h2
             style={{
               fontFamily: "var(--font-cormorant)",
-              fontSize: "clamp(32px, 4vw, 48px)",
+              fontSize: "clamp(32px, 5vw, 52px)",
               fontWeight: 400,
               color: "#304254",
-              marginBottom: "16px",
+              lineHeight: 1.2,
+              marginBottom: "18px",
             }}
           >
-            Join Us on Instagram
+            See What We&apos;re Up To
           </h2>
           <p
             style={{
               fontFamily: "var(--font-dm-sans)",
               fontSize: "15px",
               color: "#5a5a5a",
-              lineHeight: 1.75,
-              marginBottom: "36px",
-              maxWidth: "440px",
-              margin: "0 auto 36px",
+              lineHeight: 1.8,
+              maxWidth: "420px",
+              margin: "0 auto 40px",
             }}
           >
-            Follow @hostinghousenc for daily floral inspiration, event prep,
-            and behind the scenes from our studio.
+            Follow along for daily floral inspiration, event prep, and
+            behind-the-scenes moments from our studio.
           </p>
           <a
-            href="https://www.instagram.com/hostinghousenc"
+            href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -216,17 +370,81 @@ export default function InstagramPage() {
               textTransform: "uppercase",
               color: "#ffffff",
               backgroundColor: "#cd8b91",
-              padding: "16px 44px",
+              padding: "16px 48px",
               borderRadius: "2px",
               textDecoration: "none",
               display: "inline-flex",
               alignItems: "center",
-              gap: "8px",
+              gap: "10px",
             }}
           >
-            <InstagramIcon size={14} />
+            <InstagramIcon size={15} />
             Follow @hostinghousenc
           </a>
+          <p
+            style={{
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: "12px",
+              color: "#9a9a9a",
+              marginTop: "20px",
+            }}
+          >
+            Opens Instagram in a new tab
+          </p>
+        </AnimateIn>
+      </section>
+
+      {/* INQUIRY NUDGE */}
+      <section
+        style={{
+          backgroundColor: "#304254",
+          padding: "72px 24px",
+          textAlign: "center",
+        }}
+      >
+        <AnimateIn>
+          <p
+            style={{
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: "11px",
+              fontWeight: 600,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#cd8b91",
+              marginBottom: "16px",
+            }}
+          >
+            Love What You See?
+          </p>
+          <h2
+            style={{
+              fontFamily: "var(--font-cormorant)",
+              fontSize: "clamp(28px, 4vw, 44px)",
+              fontWeight: 400,
+              color: "#ffffff",
+              marginBottom: "32px",
+            }}
+          >
+            Let&apos;s Create Something Just as Beautiful for You
+          </h2>
+          <Link
+            href="/inquiry"
+            style={{
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: "13px",
+              fontWeight: 500,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "#304254",
+              backgroundColor: "#ffffff",
+              padding: "14px 40px",
+              borderRadius: "2px",
+              textDecoration: "none",
+              display: "inline-block",
+            }}
+          >
+            Inquire About Your Event
+          </Link>
         </AnimateIn>
       </section>
     </>

@@ -131,20 +131,47 @@ export default function HomePage() {
             maxWidth: "800px",
           }}
         >
-          {/* Logo — displayed in its natural rose/blush colors against the dark overlay */}
-          <div className="animate-fade-up" style={{ marginBottom: "28px" }}>
-            <Image
-              src="/logo.svg"
-              width={420}
-              height={280}
-              alt="The Hosting House NC"
+          {/* Hero wordmark — typographic treatment, no SVG white-box issues */}
+          <div className="animate-fade-up" style={{ marginBottom: "32px" }}>
+            <p
               style={{
-                maxWidth: "min(420px, 78vw)",
-                height: "auto",
-                // drop-shadow traces actual SVG paths, not the bounding box
-                filter: "drop-shadow(0 2px 20px rgba(0,0,0,0.55))",
+                fontFamily: "var(--font-ballet)",
+                fontSize: "clamp(28px, 4.5vw, 52px)",
+                fontWeight: 400,
+                color: "rgba(255,255,255,0.82)",
+                lineHeight: 1,
+                marginBottom: "4px",
               }}
-            />
+            >
+              The
+            </p>
+            <h1
+              style={{
+                fontFamily: "var(--font-cormorant)",
+                fontSize: "clamp(48px, 9vw, 104px)",
+                fontWeight: 400,
+                color: "#ffffff",
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                lineHeight: 1,
+                marginBottom: "10px",
+                textShadow: "0 2px 24px rgba(0,0,0,0.3)",
+              }}
+            >
+              Hosting House
+            </h1>
+            <p
+              style={{
+                fontFamily: "var(--font-dm-sans)",
+                fontSize: "11px",
+                fontWeight: 500,
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: "#e8a8ae",
+              }}
+            >
+              North Carolina
+            </p>
           </div>
           <p
             className="animate-fade-up delay-100"
