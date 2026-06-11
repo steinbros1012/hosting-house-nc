@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
@@ -74,16 +75,20 @@ export default function Navbar() {
           <Link
             href="/"
             style={{
-              fontFamily: "var(--font-ballet)",
-              fontSize: scrolled ? "22px" : "26px",
-              color: "#cd8b91",
+              display: "flex",
+              alignItems: "center",
               textDecoration: "none",
-              letterSpacing: "0.02em",
-              transition: "font-size 0.3s ease",
-              lineHeight: 1,
+              transition: "opacity 0.2s ease",
             }}
           >
-            The Hosting House
+            <Image
+              src="/logo.svg"
+              alt="The Hosting House NC"
+              width={scrolled ? 48 : 60}
+              height={scrolled ? 48 : 60}
+              style={{ transition: "width 0.3s ease, height 0.3s ease" }}
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -177,6 +182,13 @@ export default function Navbar() {
           transition: "transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
+        <Image
+          src="/logo.svg"
+          alt="The Hosting House NC"
+          width={72}
+          height={72}
+          style={{ marginBottom: "8px" }}
+        />
         {navLinks.map(({ href, label }) => (
           <Link
             key={href}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = [
   { href: "/", label: "Home" },
@@ -37,17 +38,14 @@ export default function Footer() {
         >
           {/* Brand Column */}
           <div>
-            <h3
-              style={{
-                fontFamily: "var(--font-ballet)",
-                fontSize: "28px",
-                color: "#cd8b91",
-                marginBottom: "16px",
-                fontWeight: 400,
-              }}
-            >
-              The Hosting House
-            </h3>
+            <div style={{ marginBottom: "20px" }}>
+              <Image
+                src="/logo.svg"
+                alt="The Hosting House NC"
+                width={72}
+                height={72}
+              />
+            </div>
             <p
               style={{
                 fontFamily: "var(--font-dm-sans)",
