@@ -120,12 +120,12 @@ export default function InstagramPage() {
       {/* HEADER */}
       <section
         style={{
-          paddingTop: "160px",
-          paddingBottom: "72px",
+          paddingTop: "140px",
+          paddingBottom: "56px",
           textAlign: "center",
           backgroundColor: "#fdf5f6",
-          paddingLeft: "24px",
-          paddingRight: "24px",
+          paddingLeft: "20px",
+          paddingRight: "20px",
         }}
       >
         <AnimateIn>
@@ -209,16 +209,7 @@ export default function InstagramPage() {
           padding: "28px 24px",
         }}
       >
-        <div
-          style={{
-            maxWidth: "800px",
-            margin: "0 auto",
-            display: "flex",
-            justifyContent: "center",
-            gap: "64px",
-            flexWrap: "wrap",
-          }}
-        >
+        <div className="stats-bar" style={{ maxWidth: "800px", margin: "0 auto" }}>
           {[
             { label: "Posts", value: "200+" },
             { label: "Following", value: "Floral Lovers" },
@@ -257,17 +248,11 @@ export default function InstagramPage() {
       <section
         style={{
           backgroundColor: "#ffffff",
-          padding: "64px 24px 100px",
+          padding: "48px 20px 80px",
         }}
       >
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-              gap: "16px",
-            }}
-          >
+          <div className="instagram-post-grid">
             {instagramPosts.map((post, i) => (
               <AnimateIn key={post.src} delay={i * 60} direction="scale">
                 <a

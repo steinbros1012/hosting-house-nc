@@ -303,17 +303,8 @@ export default function InquiryPage() {
       </section>
 
       {/* FORM SECTION */}
-      <section style={{ backgroundColor: "#fdf5f6", padding: "80px 24px 100px" }}>
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "80px",
-            alignItems: "start",
-          }}
-        >
+      <section className="section-lg" style={{ backgroundColor: "#fdf5f6" }}>
+        <div className="container split-grid" style={{ alignItems: "start" }}>
           {/* LEFT COLUMN */}
           <AnimateIn direction="in">
             <div>
@@ -451,12 +442,7 @@ export default function InquiryPage() {
           <AnimateIn delay={200}>
             <form
               onSubmit={handleSubmit}
-              style={{
-                backgroundColor: "#ffffff",
-                borderRadius: "4px",
-                border: "1px solid #ecdcde",
-                padding: "48px 40px",
-              }}
+              className="form-card"
             >
               <h3
                 style={{
@@ -471,14 +457,7 @@ export default function InquiryPage() {
               </h3>
 
               {/* Name + Email */}
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "20px",
-                  marginBottom: "20px",
-                }}
-              >
+              <div className="form-row">
                 <div>
                   <label htmlFor="name" style={labelStyle}>
                     Full Name *
@@ -529,12 +508,7 @@ export default function InquiryPage() {
 
               {/* Phone + Date */}
               <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "20px",
-                  marginBottom: "20px",
-                }}
+                className="form-row"
               >
                 <div>
                   <label htmlFor="phone" style={labelStyle}>
@@ -613,12 +587,7 @@ export default function InquiryPage() {
 
               {/* Venue + Guest Count */}
               <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "20px",
-                  marginBottom: "20px",
-                }}
+                className="form-row"
               >
                 <div>
                   <label htmlFor="venue" style={labelStyle}>

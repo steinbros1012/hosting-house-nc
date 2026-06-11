@@ -230,8 +230,8 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES PREVIEW */}
-      <section style={{ backgroundColor: "#fdf5f6", padding: "100px 24px" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <section className="section-lg" style={{ backgroundColor: "#fdf5f6" }}>
+        <div className="container">
           <AnimateIn style={{ textAlign: "center", marginBottom: "64px" }}>
             <p
               style={{
@@ -259,13 +259,7 @@ export default function HomePage() {
             </h2>
           </AnimateIn>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "32px",
-            }}
-          >
+          <div className="services-grid">
             {services.map((service, i) => (
               <AnimateIn key={service.title} delay={i * 120}>
                 <ServiceCard service={service} />
@@ -276,17 +270,8 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT PREVIEW */}
-      <section style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}>
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "80px",
-            alignItems: "center",
-          }}
-        >
+      <section className="section-lg" style={{ backgroundColor: "#ffffff" }}>
+        <div className="container split-grid">
           <AnimateIn direction="in">
             <div
               style={{
@@ -379,8 +364,8 @@ export default function HomePage() {
       </section>
 
       {/* PORTFOLIO PREVIEW */}
-      <section style={{ backgroundColor: "#fdf5f6", padding: "100px 24px" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <section className="section-lg" style={{ backgroundColor: "#fdf5f6" }}>
+        <div className="container">
           <AnimateIn style={{ textAlign: "center", marginBottom: "56px" }}>
             <p
               style={{
@@ -408,14 +393,7 @@ export default function HomePage() {
           </AnimateIn>
 
           {/* Portfolio Grid */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gridAutoRows: "260px",
-              gap: "10px",
-            }}
-          >
+          <div className="portfolio-preview-grid">
             {portfolioImages.map((img, i) => (
               <AnimateIn
                 key={img.src}
@@ -461,8 +439,8 @@ export default function HomePage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section style={{ backgroundColor: "#ffffff", padding: "100px 24px" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <section className="section-lg" style={{ backgroundColor: "#ffffff" }}>
+        <div className="container">
           <AnimateIn style={{ textAlign: "center", marginBottom: "64px" }}>
             <p
               style={{
@@ -489,23 +467,10 @@ export default function HomePage() {
             </h2>
           </AnimateIn>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "32px",
-            }}
-          >
+          <div className="testimonials-grid">
             {testimonials.map((t, i) => (
               <AnimateIn key={t.name} delay={i * 120}>
-                <div
-                  style={{
-                    padding: "40px 36px",
-                    border: "1px solid #ecdcde",
-                    borderRadius: "4px",
-                    backgroundColor: "#fdf5f6",
-                  }}
-                >
+                <div className="testimonial-card">
                   <div
                     style={{
                       fontFamily: "var(--font-cormorant)",
@@ -565,8 +530,8 @@ export default function HomePage() {
       </section>
 
       {/* INSTAGRAM PREVIEW */}
-      <section style={{ backgroundColor: "#fdf5f6", padding: "100px 24px" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <section className="section-lg" style={{ backgroundColor: "#fdf5f6" }}>
+        <div className="container">
           <AnimateIn style={{ textAlign: "center", marginBottom: "48px" }}>
             <p
               style={{
@@ -603,14 +568,7 @@ export default function HomePage() {
             </p>
           </AnimateIn>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(6, 1fr)",
-              gap: "6px",
-              marginBottom: "40px",
-            }}
-          >
+          <div className="instagram-preview-grid">
             {instagramImages.map((src, i) => (
               <AnimateIn key={src} delay={i * 60} direction="scale">
                 <a
@@ -664,11 +622,8 @@ export default function HomePage() {
 
       {/* FINAL CTA */}
       <section
-        style={{
-          backgroundColor: "#cd8b91",
-          padding: "100px 24px",
-          textAlign: "center",
-        }}
+        className="section-lg"
+        style={{ backgroundColor: "#cd8b91", textAlign: "center" }}
       >
         <AnimateIn>
           <p

@@ -102,17 +102,8 @@ export default function AboutPage() {
       </section>
 
       {/* FOUNDERS SECTION */}
-      <section style={{ backgroundColor: "#ffffff", padding: "100px 24px" }}>
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "80px",
-            alignItems: "center",
-          }}
-        >
+      <section className="section-lg" style={{ backgroundColor: "#ffffff" }}>
+        <div className="container split-grid">
           <AnimateIn direction="in">
             <div style={{ position: "relative" }}>
               <div
@@ -286,7 +277,7 @@ export default function AboutPage() {
       </section>
 
       {/* VALUES SECTION */}
-      <section style={{ backgroundColor: "#fdf5f6", padding: "100px 24px" }}>
+      <section className="section-lg" style={{ backgroundColor: "#fdf5f6" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <AnimateIn style={{ textAlign: "center", marginBottom: "64px" }}>
             <p
@@ -314,13 +305,7 @@ export default function AboutPage() {
             </h2>
           </AnimateIn>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-              gap: "32px",
-            }}
-          >
+          <div className="values-grid">
             {values.map((value, i) => (
               <AnimateIn key={value.title} delay={i * 100}>
                 <div
@@ -368,17 +353,8 @@ export default function AboutPage() {
       </section>
 
       {/* WHY US SECTION */}
-      <section style={{ backgroundColor: "#ffffff", padding: "100px 24px" }}>
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "80px",
-            alignItems: "center",
-          }}
-        >
+      <section className="section-lg" style={{ backgroundColor: "#ffffff" }}>
+        <div className="container split-grid">
           <AnimateIn delay={100}>
             <p
               style={{
@@ -467,13 +443,7 @@ export default function AboutPage() {
           </AnimateIn>
 
           <AnimateIn direction="in">
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "10px",
-              }}
-            >
+            <div className="why-grid">
               {[
                 "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80",
                 "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=400&q=80",
@@ -482,6 +452,7 @@ export default function AboutPage() {
               ].map((src, i) => (
                 <div
                   key={src}
+                  className={i === 1 || i === 3 ? "stagger-offset" : ""}
                   style={{
                     aspectRatio: "1/1",
                     position: "relative",

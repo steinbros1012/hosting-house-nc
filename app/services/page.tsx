@@ -211,21 +211,11 @@ export default function ServicesPage() {
         <section
           key={service.id}
           id={service.id}
-          style={{
-            backgroundColor: service.flip ? "#fdf5f6" : "#ffffff",
-            padding: "100px 24px",
-          }}
+          className="section-lg"
+          style={{ backgroundColor: service.flip ? "#fdf5f6" : "#ffffff" }}
         >
           <div
-            style={{
-              maxWidth: "1200px",
-              margin: "0 auto",
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "80px",
-              alignItems: "center",
-              direction: service.flip ? "rtl" : "ltr",
-            }}
+            className={`container service-row${service.flip ? " flipped" : ""}`}
           >
             <AnimateIn
               direction="in"

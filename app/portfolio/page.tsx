@@ -110,12 +110,12 @@ export default function PortfolioPage() {
       {/* HEADER */}
       <section
         style={{
-          paddingTop: "160px",
-          paddingBottom: "64px",
+          paddingTop: "140px",
+          paddingBottom: "48px",
           textAlign: "center",
           backgroundColor: "#fdf5f6",
-          paddingLeft: "24px",
-          paddingRight: "24px",
+          paddingLeft: "20px",
+          paddingRight: "20px",
         }}
       >
         <AnimateIn>
@@ -203,20 +203,8 @@ export default function PortfolioPage() {
       </section>
 
       {/* MASONRY GRID */}
-      <section
-        style={{
-          backgroundColor: "#ffffff",
-          padding: "0 24px 100px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            columns: "3",
-            columnGap: "12px",
-          }}
-        >
+      <section style={{ backgroundColor: "#ffffff", padding: "0 20px 80px" }}>
+        <div className="container masonry-grid">
           {filtered.map((item, i) => (
             <AnimateIn
               key={item.src}
@@ -313,51 +301,18 @@ export default function PortfolioPage() {
 
       {/* LIGHTBOX */}
       {lightbox && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 100,
-            backgroundColor: "rgba(0,0,0,0.9)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "24px",
-            cursor: "zoom-out",
-          }}
-          onClick={() => setLightbox(null)}
-        >
-          <div
-            style={{
-              position: "relative",
-              maxWidth: "90vw",
-              maxHeight: "90vh",
-              width: "900px",
-              aspectRatio: "4/3",
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
+        <div className="lightbox-overlay" onClick={() => setLightbox(null)}>
+          <div className="lightbox-inner" onClick={(e) => e.stopPropagation()}>
             <Image
               src={lightbox.src.replace("w=800", "w=1400")}
               alt={lightbox.alt}
               fill
               style={{ objectFit: "contain" }}
-              sizes="90vw"
+              sizes="min(900px, 96vw)"
             />
             <button
               onClick={() => setLightbox(null)}
-              style={{
-                position: "absolute",
-                top: "-44px",
-                right: "0",
-                background: "none",
-                border: "none",
-                color: "#ffffff",
-                fontSize: "32px",
-                cursor: "pointer",
-                lineHeight: 1,
-                fontFamily: "var(--font-dm-sans)",
-              }}
+              className="lightbox-close"
               aria-label="Close lightbox"
             >
               &times;

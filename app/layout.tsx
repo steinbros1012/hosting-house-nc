@@ -73,6 +73,60 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.hostinghousenc.com",
+  name: "The Hosting House NC",
+  description:
+    "Boutique event planning and floral design studio serving North Carolina. We create beautifully crafted weddings, celebrations, and gatherings with a signature Southern touch.",
+  url: "https://www.hostinghousenc.com",
+  telephone: "",
+  email: "hello@hostinghousenc.com",
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "NC",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 35.7796,
+    longitude: -78.6382,
+  },
+  areaServed: {
+    "@type": "State",
+    name: "North Carolina",
+  },
+  founder: [
+    { "@type": "Person", name: "Meredith Parker" },
+    { "@type": "Person", name: "Susanna Thomas" },
+  ],
+  sameAs: ["https://www.instagram.com/hostinghousenc"],
+  serviceType: [
+    "Wedding Planning",
+    "Event Planning",
+    "Floral Design",
+    "Floral Arrangements",
+    "Bridal Shower Planning",
+    "Baby Shower Planning",
+    "Corporate Event Planning",
+  ],
+  priceRange: "$$",
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ],
+    opens: "09:00",
+    closes: "18:00",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -83,6 +137,12 @@ export default function RootLayout({
       lang="en"
       className={`${ballet.variable} ${cormorant.variable} ${dmSans.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col antialiased">
         <Navbar />
         <main className="flex-1">{children}</main>
