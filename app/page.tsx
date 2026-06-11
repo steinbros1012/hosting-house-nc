@@ -113,13 +113,13 @@ export default function HomePage() {
           style={{ objectFit: "cover", objectPosition: "center 40%" }}
           sizes="100vw"
         />
-        {/* Softer overlay so logo reads clearly */}
+        {/* Dark overlay — rose logo reads naturally on this */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to bottom, rgba(20,15,15,0.18) 0%, rgba(20,15,15,0.52) 60%, rgba(20,15,15,0.72) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.65) 55%, rgba(0,0,0,0.84) 100%)",
           }}
         />
         <div
@@ -131,15 +131,19 @@ export default function HomePage() {
             maxWidth: "800px",
           }}
         >
-          {/* Logo SVG — white-filtered for full readability on any background */}
+          {/* Logo — displayed in its natural rose/blush colors against the dark overlay */}
           <div className="animate-fade-up" style={{ marginBottom: "28px" }}>
             <Image
               src="/logo.svg"
-              width={340}
-              height={230}
+              width={420}
+              height={280}
               alt="The Hosting House NC"
-              className="hero-logo-white"
-              style={{ maxWidth: "min(340px, 70vw)", height: "auto" }}
+              style={{
+                maxWidth: "min(420px, 78vw)",
+                height: "auto",
+                // drop-shadow traces actual SVG paths, not the bounding box
+                filter: "drop-shadow(0 2px 20px rgba(0,0,0,0.55))",
+              }}
             />
           </div>
           <p

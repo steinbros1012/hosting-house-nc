@@ -54,9 +54,13 @@ export default function Navbar() {
           right: 0,
           zIndex: 50,
           transition: "all 0.3s ease",
-          backgroundColor: scrolled ? "rgba(253,248,249,0.96)" : "transparent",
-          backdropFilter: scrolled ? "blur(12px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(205,139,145,0.2)" : "1px solid transparent",
+          // Always frosted so logo + links stay readable over any background
+          backgroundColor: scrolled
+            ? "rgba(253,245,246,0.97)"
+            : "rgba(253,245,246,0.78)",
+          backdropFilter: "blur(14px)",
+          WebkitBackdropFilter: "blur(14px)",
+          borderBottom: "1px solid rgba(205,139,145,0.18)",
         }}
       >
         <div
@@ -71,23 +75,27 @@ export default function Navbar() {
             transition: "height 0.3s ease",
           }}
         >
-          {/* Logo */}
+          {/* Logo — landscape SVG, height-driven sizing with auto width */}
           <Link
             href="/"
             style={{
               display: "flex",
               alignItems: "center",
               textDecoration: "none",
-              transition: "opacity 0.2s ease",
+              flexShrink: 0,
             }}
           >
             <Image
               src="/logo.svg"
               alt="The Hosting House NC"
-              width={scrolled ? 48 : 60}
-              height={scrolled ? 48 : 60}
-              style={{ transition: "width 0.3s ease, height 0.3s ease" }}
+              width={220}
+              height={88}
               priority
+              style={{
+                height: scrolled ? "48px" : "62px",
+                width: "auto",
+                transition: "height 0.3s ease",
+              }}
             />
           </Link>
 
@@ -185,9 +193,9 @@ export default function Navbar() {
         <Image
           src="/logo.svg"
           alt="The Hosting House NC"
-          width={72}
-          height={72}
-          style={{ marginBottom: "8px" }}
+          width={220}
+          height={88}
+          style={{ height: "70px", width: "auto", marginBottom: "8px" }}
         />
         {navLinks.map(({ href, label }) => (
           <Link
