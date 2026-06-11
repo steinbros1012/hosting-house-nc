@@ -45,39 +45,39 @@ export async function POST(request: NextRequest) {
       ? data.services.join(", ")
       : "Not specified";
 
-  const accessKey = process.env.WEB3FORMS_KEY;
-  if (!accessKey) {
-    return NextResponse.json({ error: "Form not configured." }, { status: 500 });
-  }
-
   const payload = {
-    access_key: accessKey,
-    subject: `New Inquiry: ${data.eventType} - ${data.name}`,
-    from_name: "The Hosting House NC",
-    replyto: data.email,
-    name: data.name,
-    email: data.email,
-    phone: data.phone || "Not provided",
-    event_type: data.eventType,
-    event_date: data.eventDate || "Not specified",
-    venue: data.venue || "Not specified",
-    guest_count: data.guestCount || "Not specified",
-    budget: data.budget || "Not specified",
-    services: servicesText,
-    message: data.message,
+    _subject: `New Inquiry: ${data.eventType} - ${data.name}`,
+    _replyto: data.email,
+    _template: "table",
+    Name: data.name,
+    Email: data.email,
+    Phone: data.phone || "Not provided",
+    "Event Type": data.eventType,
+    "Event Date": data.eventDate || "Not specified",
+    Venue: data.venue || "Not specified",
+    "Guest Count": data.guestCount || "Not specified",
+    Budget: data.budget || "Not specified",
+    Services: servicesText,
+    Message: data.message,
   };
 
-  const res = await fetch("https://api.web3forms.com/submit", {
+  const res = await fetch("https://formsubmit.co/ajax/hostinghousenc@gmail.com", {
     method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
     body: JSON.stringify(payload),
   });
 
   const result = await res.json();
 
   if (!result.success) {
-    console.error("Web3Forms error:", result);
-    return NextResponse.json({ error: "Failed to send inquiry. Please try again." }, { status: 500 });
+    console.error("Formsubmit error:", result);
+    return NextResponse.json(
+      { error: "Failed to send inquiry. Please try again." },
+      { status: 500 }
+    );
   }
 
   return NextResponse.json({ success: true });
