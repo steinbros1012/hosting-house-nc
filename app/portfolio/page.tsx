@@ -2,103 +2,157 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import AnimateIn from "@/components/AnimateIn";
 
-const categories = ["All", "Weddings", "Florals", "Events", "Showers"];
+const categories = ["All", "Florals", "Tablescapes", "Events", "Parties"];
 
 const portfolioItems = [
   {
-    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80",
-    alt: "Lush reception centerpiece with garden roses and greenery",
-    category: "Weddings",
-    title: "Garden Rose Reception",
+    src: "/images/portfolio/IMG_6227.JPG",
+    alt: "Spring tablescape with pink roses, butterfly plates, and gingham",
+    category: "Tablescapes",
+    title: "Spring Garden Tablescape",
     tall: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80",
-    alt: "Bridal bouquet with peonies and white blooms",
+    src: "/images/portfolio/DSC00420.JPG",
+    alt: "Colorful outdoor floral centerpiece with snapdragons and orange roses",
     category: "Florals",
-    title: "Peony Bridal Bouquet",
-    tall: false,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=800&q=80",
-    alt: "Elegant styled dinner tablescape",
-    category: "Events",
-    title: "Styled Dinner Party",
-    tall: false,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80",
-    alt: "Soft pastel bridal shower arrangement",
-    category: "Showers",
-    title: "Bridal Shower Blooms",
+    title: "Garden Party Florals",
     tall: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=800&q=80",
-    alt: "Close-up of pink rose arrangement",
+    src: "/images/portfolio/DSC00781.JPG",
+    alt: "Meredith and Susanna at a Caftans and Cocktails party",
+    category: "Events",
+    title: "Caftans & Cocktails",
+    tall: false,
+  },
+  {
+    src: "/images/portfolio/IMG_3728.JPG",
+    alt: "Elegant silver urn with roses and hydrangeas for an anniversary dinner",
     category: "Florals",
-    title: "Pink Rose Composition",
-    tall: false,
+    title: "Anniversary Centerpiece",
+    tall: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80",
-    alt: "Reception with candles and ambient lighting",
-    category: "Weddings",
-    title: "Candlelit Reception",
-    tall: false,
+    src: "/images/portfolio/IMG_7537.JPG",
+    alt: "Blue and white floral centerpiece with lemons and yellow tapers",
+    category: "Tablescapes",
+    title: "Lemon & Lavender Dinner",
+    tall: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1490750967868-88df5691cc57?w=800&q=80",
-    alt: "Lush pink floral installation",
+    src: "/images/portfolio/DSC00295.JPG",
+    alt: "Disco ball cake reading Calpenia and Cocktails",
+    category: "Events",
+    title: "Caftans & Cocktails Cake",
+    tall: true,
+  },
+  {
+    src: "/images/portfolio/DSC00970.JPG",
+    alt: "Bold colorful centerpiece with peonies, orange, and yellow blooms",
     category: "Florals",
-    title: "Floral Installation",
+    title: "Bold Summer Centerpiece",
+    tall: false,
+  },
+  {
+    src: "/images/portfolio/IMG_8131.JPG",
+    alt: "Spring dining table with tall floral arrangements and tapers",
+    category: "Tablescapes",
+    title: "Spring Dining Table",
+    tall: false,
+  },
+  {
+    src: "/images/portfolio/DSC00345.JPG",
+    alt: "Branded white gift boxes with ribbons and The Hosting House tags",
+    category: "Events",
+    title: "Custom Party Favors",
     tall: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80",
-    alt: "Romantic event decor setup",
+    src: "/images/portfolio/IMG_5317.jpg",
+    alt: "Founder at a decorated dinner table with a pink birthday cake",
     category: "Events",
-    title: "Romantic Evening Event",
-    tall: false,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
-    alt: "Elegant table setting for dinner party",
-    category: "Events",
-    title: "Black Tie Dinner",
-    tall: false,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&q=80",
-    alt: "Wedding reception detail shot",
-    category: "Weddings",
-    title: "Wedding Reception Details",
-    tall: false,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
-    alt: "Baby shower with pastel decor",
-    category: "Showers",
-    title: "Pastel Baby Shower",
+    title: "Pink Birthday Dinner",
     tall: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80",
-    alt: "Outdoor summer wedding reception",
-    category: "Weddings",
-    title: "Summer Garden Wedding",
+    src: "/images/portfolio/DSC00417.JPG",
+    alt: "Close-up outdoor floral arrangement with orange roses and pink peonies",
+    category: "Florals",
+    title: "Outdoor Garden Arrangement",
     tall: false,
+  },
+  {
+    src: "/images/portfolio/IMG_6966.JPG",
+    alt: "Louisa's Pink Puppy Club kids birthday party with banner and pink table",
+    category: "Parties",
+    title: "Pink Puppy Club Party",
+    tall: true,
+  },
+  {
+    src: "/images/portfolio/IMG_2371.JPG",
+    alt: "Elegant green and white place setting with crystal and silver",
+    category: "Tablescapes",
+    title: "Classic Green Place Setting",
+    tall: true,
+  },
+  {
+    src: "/images/portfolio/DSC00392.JPG",
+    alt: "Silver punch bowl with citrus slices and flowers",
+    category: "Events",
+    title: "Garden Party Punch Bowl",
+    tall: true,
+  },
+  {
+    src: "/images/portfolio/IMG_4845.JPG",
+    alt: "Outdoor cocktail bar with custom signature cocktail menu",
+    category: "Events",
+    title: "Signature Cocktail Bar",
+    tall: true,
+  },
+  {
+    src: "/images/portfolio/DSC00753.JPG",
+    alt: "Harry Styles themed floral arrangement in a silver bucket",
+    category: "Florals",
+    title: "Harry Styles Garden Party",
+    tall: true,
+  },
+  {
+    src: "/images/portfolio/IMG_6967.JPG",
+    alt: "Pink puppy birthday table with flowers and a party hat stuffed animal",
+    category: "Parties",
+    title: "Puppy Birthday Florals",
+    tall: true,
+  },
+  {
+    src: "/images/portfolio/IMG_0454.jpg",
+    alt: "Holiday chandelier with pink ribbons and floral centerpiece",
+    category: "Events",
+    title: "Holiday Dinner Party",
+    tall: true,
+  },
+  {
+    src: "/images/portfolio/IMG_3741.jpg",
+    alt: "Tiered flower display with multiple seasonal bloom varieties",
+    category: "Florals",
+    title: "Floral Bar Display",
+    tall: true,
+  },
+  {
+    src: "/images/portfolio/DSC00463.JPG",
+    alt: "Caftans and Cocktails retro-style cocktail menu in a gold frame",
+    category: "Events",
+    title: "Caftans & Cocktails Menu",
+    tall: true,
   },
 ];
 
 export default function PortfolioPage() {
   const [active, setActive] = useState("All");
-  const [lightbox, setLightbox] = useState<{
-    src: string;
-    alt: string;
-  } | null>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const filtered =
     active === "All"
@@ -223,9 +277,7 @@ export default function PortfolioPage() {
                   borderRadius: "3px",
                   aspectRatio: item.tall ? "3/4" : "4/3",
                 }}
-                onClick={() =>
-                  setLightbox({ src: item.src, alt: item.alt })
-                }
+                onClick={() => setLightbox({ src: item.src, alt: item.alt })}
               >
                 <Image
                   src={item.src}
@@ -237,14 +289,12 @@ export default function PortfolioPage() {
                   }}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   onMouseEnter={(e) =>
-                    ((e.target as HTMLImageElement).style.transform =
-                      "scale(1.05)")
+                    ((e.target as HTMLImageElement).style.transform = "scale(1.05)")
                   }
                   onMouseLeave={(e) =>
                     ((e.target as HTMLImageElement).style.transform = "scale(1)")
                   }
                 />
-                {/* Hover overlay */}
                 <div
                   style={{
                     position: "absolute",
@@ -258,10 +308,14 @@ export default function PortfolioPage() {
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLDivElement).style.backgroundColor =
                       "rgba(48,66,84,0.4)";
+                    const p = e.currentTarget.querySelector("p");
+                    if (p) p.style.opacity = "1";
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLDivElement).style.backgroundColor =
                       "rgba(48,66,84,0)";
+                    const p = e.currentTarget.querySelector("p");
+                    if (p) p.style.opacity = "0";
                   }}
                 >
                   <p
@@ -272,13 +326,8 @@ export default function PortfolioPage() {
                       color: "#ffffff",
                       opacity: 0,
                       transition: "opacity 0.3s ease",
+                      pointerEvents: "none",
                     }}
-                    onMouseEnter={(e) =>
-                      ((e.target as HTMLElement).style.opacity = "1")
-                    }
-                    onMouseLeave={(e) =>
-                      ((e.target as HTMLElement).style.opacity = "0")
-                    }
                   >
                     {item.title}
                   </p>
@@ -287,16 +336,6 @@ export default function PortfolioPage() {
             </AnimateIn>
           ))}
         </div>
-
-        {/* Mobile: switch to 2 columns */}
-        <style>{`
-          @media (max-width: 768px) {
-            .masonry-grid { columns: 2 !important; }
-          }
-          @media (max-width: 480px) {
-            .masonry-grid { columns: 1 !important; }
-          }
-        `}</style>
       </section>
 
       {/* LIGHTBOX */}
@@ -304,7 +343,7 @@ export default function PortfolioPage() {
         <div className="lightbox-overlay" onClick={() => setLightbox(null)}>
           <div className="lightbox-inner" onClick={(e) => e.stopPropagation()}>
             <Image
-              src={lightbox.src.replace("w=800", "w=1400")}
+              src={lightbox.src}
               alt={lightbox.alt}
               fill
               style={{ objectFit: "contain" }}
@@ -313,7 +352,7 @@ export default function PortfolioPage() {
             <button
               onClick={() => setLightbox(null)}
               className="lightbox-close"
-              aria-label="Close lightbox"
+              aria-label="Close"
             >
               &times;
             </button>
@@ -347,7 +386,6 @@ export default function PortfolioPage() {
               fontSize: "15px",
               color: "#5a5a5a",
               lineHeight: 1.75,
-              marginBottom: "36px",
               maxWidth: "440px",
               margin: "0 auto 36px",
             }}
@@ -355,7 +393,7 @@ export default function PortfolioPage() {
             Let&apos;s create something just as beautiful for your celebration.
             Reach out to start the conversation.
           </p>
-          <a
+          <Link
             href="/inquiry"
             style={{
               fontFamily: "var(--font-dm-sans)",
@@ -372,7 +410,7 @@ export default function PortfolioPage() {
             }}
           >
             Inquire About Your Event
-          </a>
+          </Link>
         </AnimateIn>
       </section>
     </>
