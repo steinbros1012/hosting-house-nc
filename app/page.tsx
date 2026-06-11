@@ -37,33 +37,33 @@ const services = [
 
 const portfolioImages = [
   {
-    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80",
-    alt: "Elegant floral centerpiece at a reception",
+    src: "/images/portfolio/IMG_6227.JPG",
+    alt: "Spring tablescape with pink roses and gingham",
     tall: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80",
-    alt: "Wedding bouquet with garden roses",
+    src: "/images/portfolio/DSC00420.JPG",
+    alt: "Colorful outdoor floral centerpiece",
     tall: false,
   },
   {
-    src: "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=600&q=80",
-    alt: "Styled event table with floral accents",
+    src: "/images/portfolio/IMG_7537.JPG",
+    alt: "Blue and white centerpiece with lemons and tapers",
     tall: false,
   },
   {
-    src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80",
-    alt: "Romantic event decor with candles",
+    src: "/images/portfolio/IMG_3728.JPG",
+    alt: "Silver urn with roses and hydrangeas",
     tall: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&q=80",
-    alt: "Pink floral arrangement close-up",
+    src: "/images/portfolio/DSC00970.JPG",
+    alt: "Bold summer floral centerpiece",
     tall: false,
   },
   {
-    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80",
-    alt: "Bridal bouquet with soft pastel blooms",
+    src: "/images/portfolio/IMG_2371.JPG",
+    alt: "Classic green and white place setting",
     tall: false,
   },
 ];
