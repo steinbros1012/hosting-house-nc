@@ -28,10 +28,8 @@ export default function Footer() {
         }}
       >
         <div
+          className="footer-grid"
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "48px",
             paddingBottom: "48px",
             borderBottom: "1px solid rgba(255,255,255,0.12)",
           }}
