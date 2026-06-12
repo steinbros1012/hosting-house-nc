@@ -208,8 +208,7 @@ export default function PortfolioPage() {
               margin: "0 auto",
             }}
           >
-            A glimpse at the celebrations, florals, and gatherings we have had
-            the honor of bringing to life.
+            A glimpse at the celebrations, florals, and gatherings<br />we have had the honor of bringing to life.
           </p>
         </AnimateIn>
       </section>
