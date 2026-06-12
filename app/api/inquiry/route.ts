@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 interface InquiryBody {
   name: string;
@@ -16,6 +17,8 @@ interface InquiryBody {
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   let body: unknown;
@@ -45,55 +48,41 @@ export async function POST(request: NextRequest) {
       ? data.services.join(", ")
       : "Not specified";
 
-  const payload = {
-    _subject: `New Inquiry: ${data.eventType} - ${data.name}`,
-    _replyto: data.email,
-    _template: "table",
-    Name: data.name,
-    Email: data.email,
-    Phone: data.phone || "Not provided",
-    "Event Type": data.eventType,
-    "Event Date": data.eventDate || "Not specified",
-    Venue: data.venue || "Not specified",
-    "Guest Count": data.guestCount || "Not specified",
-    Budget: data.budget || "Not specified",
-    Services: servicesText,
-    Message: data.message,
-  };
+  const rows = [
+    ["Name", data.name],
+    ["Email", data.email],
+    ["Phone", data.phone || "Not provided"],
+    ["Event Type", data.eventType],
+    ["Event Date", data.eventDate || "Not specified"],
+    ["Venue", data.venue || "Not specified"],
+    ["Guest Count", data.guestCount || "Not specified"],
+    ["Budget", data.budget || "Not specified"],
+    ["Services", servicesText],
+    ["Message", data.message],
+  ]
+    .map(
+      ([label, value]) =>
+        `<tr><td style="padding:8px 12px;font-weight:600;background:#fdf5f6;border:1px solid #ecdcde;">${label}</td><td style="padding:8px 12px;border:1px solid #ecdcde;">${value}</td></tr>`
+    )
+    .join("");
 
-  let res: Response;
-  try {
-    res = await fetch("https://formsubmit.co/ajax/steinbros1012@gmail.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-  } catch (err) {
-    console.error("Formsubmit network error:", err);
-    return NextResponse.json(
-      { error: "Failed to send inquiry. Please try again." },
-      { status: 500 }
-    );
-  }
+  const html = `
+    <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
+      <h2 style="color:#304254;">New Inquiry — ${data.eventType}</h2>
+      <table style="width:100%;border-collapse:collapse;">${rows}</table>
+    </div>
+  `;
 
-  let result: { success?: boolean | string; message?: string };
-  try {
-    result = await res.json();
-  } catch {
-    // Formsubmit returned non-JSON — usually means the email needs activation.
-    // The activation email was sent to steinbros1012@gmail.com; click it once.
-    console.error("Formsubmit non-JSON response (activation may be required)");
-    return NextResponse.json(
-      { error: "Failed to send inquiry. Please try again." },
-      { status: 500 }
-    );
-  }
+  const { error } = await resend.emails.send({
+    from: "The Hosting House NC <onboarding@resend.dev>",
+    to: "steinbros1012@gmail.com",
+    replyTo: data.email,
+    subject: `New Inquiry: ${data.eventType} — ${data.name}`,
+    html,
+  });
 
-  if (result.success !== true && result.success !== "true") {
-    console.error("Formsubmit error:", result);
+  if (error) {
+    console.error("Resend error:", error);
     return NextResponse.json(
       { error: "Failed to send inquiry. Please try again." },
       { status: 500 }

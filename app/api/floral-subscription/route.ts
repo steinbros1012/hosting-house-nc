@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 interface SignupBody {
   name: string;
@@ -13,6 +14,8 @@ interface SignupBody {
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   let body: unknown;
@@ -31,50 +34,38 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Please provide a valid email address." }, { status: 400 });
   }
 
-  const payload = {
-    _subject: `Floral Club Signup: ${data.name}`,
-    _replyto: data.email,
-    _template: "table",
-    Name: data.name,
-    Email: data.email,
-    Phone: data.phone || "Not provided",
-    "Delivery Address": data.address || "Not provided",
-    "City / Area": data.city || "Not provided",
-    "Style Preference": data.preference || "No preference selected",
-    Notes: data.notes || "None",
-  };
+  const rows = [
+    ["Name", data.name],
+    ["Email", data.email],
+    ["Phone", data.phone || "Not provided"],
+    ["Delivery Address", data.address || "Not provided"],
+    ["City / Area", data.city || "Not provided"],
+    ["Style Preference", data.preference || "No preference selected"],
+    ["Notes", data.notes || "None"],
+  ]
+    .map(
+      ([label, value]) =>
+        `<tr><td style="padding:8px 12px;font-weight:600;background:#fdf5f6;border:1px solid #ecdcde;">${label}</td><td style="padding:8px 12px;border:1px solid #ecdcde;">${value}</td></tr>`
+    )
+    .join("");
 
-  let res: Response;
-  try {
-    res = await fetch("https://formsubmit.co/ajax/steinbros1012@gmail.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-  } catch (err) {
-    console.error("Formsubmit network error:", err);
-    return NextResponse.json(
-      { error: "Something went wrong. Please try again." },
-      { status: 500 }
-    );
-  }
+  const html = `
+    <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
+      <h2 style="color:#304254;">New Floral Club Signup</h2>
+      <table style="width:100%;border-collapse:collapse;">${rows}</table>
+    </div>
+  `;
 
-  let result: { success?: boolean | string; message?: string };
-  try {
-    result = await res.json();
-  } catch {
-    console.error("Formsubmit non-JSON response (activation may be required)");
-    return NextResponse.json(
-      { error: "Something went wrong. Please try again." },
-      { status: 500 }
-    );
-  }
+  const { error } = await resend.emails.send({
+    from: "The Hosting House NC <onboarding@resend.dev>",
+    to: "steinbros1012@gmail.com",
+    replyTo: data.email,
+    subject: `Floral Club Signup: ${data.name}`,
+    html,
+  });
 
-  if (result.success !== true && result.success !== "true") {
-    console.error("Formsubmit error:", result);
+  if (error) {
+    console.error("Resend error:", error);
     return NextResponse.json(
       { error: "Something went wrong. Please try again." },
       { status: 500 }
