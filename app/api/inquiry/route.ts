@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
   if (!data.eventType || typeof data.eventType !== "string") {
     return NextResponse.json({ error: "Please select an event type." }, { status: 400 });
   }
-  if (!data.message || typeof data.message !== "string" || data.message.trim().length < 10) {
+  if (!data.message || typeof data.message !== "string" || data.message.trim().length < 2) {
     return NextResponse.json({ error: "Please tell us a bit more about your event." }, { status: 400 });
   }
 
