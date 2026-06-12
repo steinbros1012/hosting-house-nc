@@ -268,16 +268,13 @@ export default function PortfolioPage() {
         >
           {filtered.map((item, i) => (
             <AnimateIn key={item.src} delay={i * 40}>
-              <div
-                style={{ position: "relative", aspectRatio: "1/1", cursor: "pointer" }}
-              >
-                {/* Ornate SVG frame overlay */}
-                <OrnateFrame />
+              <OrnateFrame>
                 <div
                   style={{
-                    position: "absolute",
-                    inset: "14px",
+                    position: "relative",
                     overflow: "hidden",
+                    aspectRatio: "1/1",
+                    cursor: "pointer",
                     borderRadius: "1px",
                   }}
                   onClick={() => setLightbox({ src: item.src, alt: item.alt })}
@@ -329,7 +326,7 @@ export default function PortfolioPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </OrnateFrame>
             </AnimateIn>
           ))}
         </div>
