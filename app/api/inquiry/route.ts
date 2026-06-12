@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 interface InquiryBody {
   name: string;
@@ -17,8 +17,6 @@ interface InquiryBody {
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   let body: unknown;
@@ -48,41 +46,39 @@ export async function POST(request: NextRequest) {
       ? data.services.join(", ")
       : "Not specified";
 
-  const rows = [
-    ["Name", data.name],
-    ["Email", data.email],
-    ["Phone", data.phone || "Not provided"],
-    ["Event Type", data.eventType],
-    ["Event Date", data.eventDate || "Not specified"],
-    ["Venue", data.venue || "Not specified"],
-    ["Guest Count", data.guestCount || "Not specified"],
-    ["Budget", data.budget || "Not specified"],
-    ["Services", servicesText],
-    ["Message", data.message],
-  ]
-    .map(
-      ([label, value]) =>
-        `<tr><td style="padding:8px 12px;font-weight:600;background:#fdf5f6;border:1px solid #ecdcde;">${label}</td><td style="padding:8px 12px;border:1px solid #ecdcde;">${value}</td></tr>`
-    )
-    .join("");
-
-  const html = `
-    <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
-      <h2 style="color:#304254;">New Inquiry — ${data.eventType}</h2>
-      <table style="width:100%;border-collapse:collapse;">${rows}</table>
-    </div>
-  `;
-
-  const { error } = await resend.emails.send({
-    from: "The Hosting House NC <onboarding@resend.dev>",
-    to: "ethan@buildsiteco.com",
-    replyTo: data.email,
-    subject: `New Inquiry: ${data.eventType} — ${data.name}`,
-    html,
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "steinbros1012@gmail.com",
+      pass: process.env.GMAIL_APP_PASSWORD,
+    },
   });
 
-  if (error) {
-    console.error("Resend error:", error);
+  const text = [
+    `Name: ${data.name}`,
+    `Email: ${data.email}`,
+    `Phone: ${data.phone || "Not provided"}`,
+    `Event Type: ${data.eventType}`,
+    `Event Date: ${data.eventDate || "Not specified"}`,
+    `Venue: ${data.venue || "Not specified"}`,
+    `Guest Count: ${data.guestCount || "Not specified"}`,
+    `Budget: ${data.budget || "Not specified"}`,
+    `Services: ${servicesText}`,
+    ``,
+    `Message:`,
+    data.message,
+  ].join("\n");
+
+  try {
+    await transporter.sendMail({
+      from: "steinbros1012@gmail.com",
+      to: "steinbros1012@gmail.com",
+      replyTo: data.email,
+      subject: `New Inquiry: ${data.eventType} — ${data.name}`,
+      text,
+    });
+  } catch (err) {
+    console.error("Mail error:", err);
     return NextResponse.json(
       { error: "Failed to send inquiry. Please try again." },
       { status: 500 }
