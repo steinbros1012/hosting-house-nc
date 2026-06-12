@@ -98,7 +98,7 @@ export default function FloralSubscriptionPage() {
       <section
         style={{
           backgroundColor: "#fdf5f6",
-          paddingTop: "130px",
+          paddingTop: "clamp(100px, 15vw, 130px)",
           paddingBottom: "72px",
           textAlign: "center",
           paddingLeft: "24px",
@@ -195,13 +195,7 @@ export default function FloralSubscriptionPage() {
             </h2>
           </AnimateIn>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
-              gap: "32px",
-            }}
-          >
+          <div className="feature-tiles-grid">
             {[
               {
                 icon: "✦",
@@ -319,7 +313,7 @@ export default function FloralSubscriptionPage() {
               <div
                 style={{
                   textAlign: "center",
-                  padding: "64px 40px",
+                  padding: "clamp(32px, 8vw, 64px) clamp(20px, 6vw, 40px)",
                   backgroundColor: "#fdf5f6",
                   borderRadius: "4px",
                   border: "1px solid #ecdcde",

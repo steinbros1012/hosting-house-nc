@@ -164,7 +164,7 @@ export default function PortfolioPage() {
       {/* HEADER */}
       <section
         style={{
-          paddingTop: "140px",
+          paddingTop: "clamp(100px, 15vw, 140px)",
           paddingBottom: "48px",
           textAlign: "center",
           backgroundColor: "#fdf5f6",

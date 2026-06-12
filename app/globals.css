@@ -153,9 +153,14 @@ h1, h2, h3, h4 {
 .section-sm  { padding: 60px 24px; }
 
 @media (max-width: 768px) {
-  .section-lg  { padding: 64px 20px; }
-  .section-md  { padding: 48px 20px; }
-  .section-sm  { padding: 40px 20px; }
+  .section-lg  { padding: 56px 20px; }
+  .section-md  { padding: 44px 20px; }
+  .section-sm  { padding: 36px 20px; }
+}
+@media (max-width: 480px) {
+  .section-lg  { padding: 48px 16px; }
+  .section-md  { padding: 36px 16px; }
+  .section-sm  { padding: 28px 16px; }
 }
 
 /* Max-width container */
@@ -219,8 +224,21 @@ h1, h2, h3, h4 {
   gap: 10px;
 }
 @media (max-width: 480px) {
-  .stagger-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .stagger-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
   .stagger-grid .stagger-offset { margin-top: 0 !important; }
+}
+
+/* Floral club feature tiles — 2-col on desktop, 1-col on mobile */
+.feature-tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+@media (max-width: 600px) {
+  .feature-tiles-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 /* Split 2-col about/services layout */
@@ -232,6 +250,21 @@ h1, h2, h3, h4 {
 }
 @media (max-width: 680px) {
   .split-grid { gap: 36px; }
+}
+/* Inquiry page: form always on top on mobile */
+.inquiry-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .inquiry-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .inquiry-split .inquiry-info { order: 2; }
+  .inquiry-split .inquiry-form { order: 1; }
 }
 
 /* Service tag pills */
@@ -387,6 +420,9 @@ h1, h2, h3, h4 {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 28px;
 }
+@media (max-width: 480px) {
+  .values-grid { grid-template-columns: 1fr; gap: 16px; }
+}
 
 /* Testimonials grid */
 .testimonials-grid {
@@ -394,12 +430,18 @@ h1, h2, h3, h4 {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 28px;
 }
+@media (max-width: 480px) {
+  .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+}
 
 /* Services grid (home) */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 28px;
+}
+@media (max-width: 480px) {
+  .services-grid { grid-template-columns: 1fr; gap: 16px; }
 }
 
 /* Instagram post grid */

@@ -306,9 +306,9 @@ export default function InquiryPage() {
 
       {/* FORM SECTION */}
       <section className="section-lg" style={{ backgroundColor: "#fdf5f6" }}>
-        <div className="container split-grid" style={{ alignItems: "start" }}>
+        <div className="container inquiry-split">
           {/* LEFT COLUMN */}
-          <AnimateIn direction="in">
+          <AnimateIn direction="in" className="inquiry-info">
             <div>
               <p
                 style={{
@@ -407,7 +407,7 @@ export default function InquiryPage() {
               <div
                 style={{
                   marginTop: "48px",
-                  padding: "28px 32px",
+                  padding: "clamp(16px, 4vw, 28px) clamp(16px, 4vw, 32px)",
                   backgroundColor: "#ffffff",
                   borderRadius: "4px",
                   border: "1px solid #ecdcde",
@@ -441,7 +441,7 @@ export default function InquiryPage() {
           </AnimateIn>
 
           {/* FORM */}
-          <AnimateIn delay={200}>
+          <AnimateIn delay={200} className="inquiry-form">
             <form
               onSubmit={handleSubmit}
               className="form-card"

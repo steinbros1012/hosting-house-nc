@@ -289,7 +289,7 @@ export default function AboutPage() {
               <AnimateIn key={value.title} delay={i * 100}>
                 <div
                   style={{
-                    padding: "40px 32px",
+                    padding: "clamp(20px, 4vw, 40px) clamp(16px, 3vw, 32px)",
                     backgroundColor: "#ffffff",
                     borderRadius: "4px",
                     border: "1px solid #ecdcde",

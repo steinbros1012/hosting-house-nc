@@ -512,7 +512,7 @@ export default function HomePage() {
                   <div
                     style={{
                       fontFamily: "var(--font-cormorant)",
-                      fontSize: "60px",
+                      fontSize: "clamp(36px, 8vw, 60px)",
                       lineHeight: 0.75,
                       color: "#cd8b91",
                       marginBottom: "20px",
