@@ -262,7 +262,7 @@ export default function PortfolioPage() {
           className="container"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
+            gridTemplateColumns: filtered.length <= 4 ? "repeat(2, 1fr)" : "repeat(3, 1fr)",
             gap: "10px",
           }}
         >
