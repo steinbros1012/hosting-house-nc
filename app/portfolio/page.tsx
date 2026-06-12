@@ -268,61 +268,64 @@ export default function PortfolioPage() {
         >
           {filtered.map((item, i) => (
             <AnimateIn key={item.src} delay={i * 40}>
-              <div
-                style={{
-                  position: "relative",
-                  overflow: "hidden",
-                  borderRadius: "3px",
-                  aspectRatio: "1/1",
-                  cursor: "pointer",
-                }}
-                onClick={() => setLightbox({ src: item.src, alt: item.alt })}
-                onMouseEnter={(e) => {
-                  const overlay = e.currentTarget.querySelector<HTMLDivElement>(".portfolio-overlay");
-                  if (overlay) overlay.style.opacity = "1";
-                }}
-                onMouseLeave={(e) => {
-                  const overlay = e.currentTarget.querySelector<HTMLDivElement>(".portfolio-overlay");
-                  if (overlay) overlay.style.opacity = "0";
-                }}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
-                  sizes="(max-width: 640px) 50vw, 33vw"
-                  onMouseEnter={(e) =>
-                    ((e.target as HTMLImageElement).style.transform = "scale(1.05)")
-                  }
-                  onMouseLeave={(e) =>
-                    ((e.target as HTMLImageElement).style.transform = "scale(1)")
-                  }
-                />
+              {/* Ornate gold frame wrapper */}
+              <div className="portfolio-frame">
                 <div
-                  className="portfolio-overlay"
                   style={{
-                    position: "absolute",
-                    inset: 0,
-                    backgroundColor: "rgba(48,66,84,0.4)",
-                    display: "flex",
-                    alignItems: "flex-end",
-                    padding: "16px",
-                    opacity: 0,
-                    transition: "opacity 0.3s ease",
+                    position: "relative",
+                    overflow: "hidden",
+                    borderRadius: "1px",
+                    aspectRatio: "1/1",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setLightbox({ src: item.src, alt: item.alt })}
+                  onMouseEnter={(e) => {
+                    const overlay = e.currentTarget.querySelector<HTMLDivElement>(".portfolio-overlay");
+                    if (overlay) overlay.style.opacity = "1";
+                  }}
+                  onMouseLeave={(e) => {
+                    const overlay = e.currentTarget.querySelector<HTMLDivElement>(".portfolio-overlay");
+                    if (overlay) overlay.style.opacity = "0";
                   }}
                 >
-                  <p
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                    onMouseEnter={(e) =>
+                      ((e.target as HTMLImageElement).style.transform = "scale(1.05)")
+                    }
+                    onMouseLeave={(e) =>
+                      ((e.target as HTMLImageElement).style.transform = "scale(1)")
+                    }
+                  />
+                  <div
+                    className="portfolio-overlay"
                     style={{
-                      fontFamily: "var(--font-cormorant)",
-                      fontSize: "16px",
-                      fontStyle: "italic",
-                      color: "#ffffff",
-                      pointerEvents: "none",
+                      position: "absolute",
+                      inset: 0,
+                      backgroundColor: "rgba(48,66,84,0.4)",
+                      display: "flex",
+                      alignItems: "flex-end",
+                      padding: "16px",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
                     }}
                   >
-                    {item.title}
-                  </p>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-cormorant)",
+                        fontSize: "16px",
+                        fontStyle: "italic",
+                        color: "#ffffff",
+                        pointerEvents: "none",
+                      }}
+                    >
+                      {item.title}
+                    </p>
+                  </div>
                 </div>
               </div>
             </AnimateIn>
