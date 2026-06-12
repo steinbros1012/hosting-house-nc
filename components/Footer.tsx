@@ -118,42 +118,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4
-              style={{
-                fontFamily: "var(--font-dm-sans)",
-                fontSize: "11px",
-                fontWeight: 600,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.5)",
-                marginBottom: "20px",
-              }}
-            >
-              Services
-            </h4>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
-              {["Event Planning", "Event Design", "Floral Design", "Wedding Florals", "Custom Arrangements", "Day-Of Coordination"].map(
-                (service) => (
-                  <li key={service}>
-                    <Link
-                      href="/services"
-                      style={{
-                        fontFamily: "var(--font-dm-sans)",
-                        fontSize: "14px",
-                        color: "rgba(255,255,255,0.7)",
-                        textDecoration: "none",
-                      }}
-                    >
-                      {service}
-                    </Link>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-
           {/* Contact CTA */}
           <div>
             <h4
