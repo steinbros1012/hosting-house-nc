@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AnimateIn from "@/components/AnimateIn";
+import OrnateFrame from "@/components/OrnateFrame";
 
 const categories = ["All", "Florals", "Tablescapes", "Events", "Parties"];
 
@@ -267,15 +268,17 @@ export default function PortfolioPage() {
         >
           {filtered.map((item, i) => (
             <AnimateIn key={item.src} delay={i * 40}>
-              {/* Ornate gold frame wrapper */}
-              <div className="portfolio-frame">
+              <div
+                style={{ position: "relative", aspectRatio: "1/1", cursor: "pointer" }}
+              >
+                {/* Ornate SVG frame overlay */}
+                <OrnateFrame />
                 <div
                   style={{
-                    position: "relative",
+                    position: "absolute",
+                    inset: "14px",
                     overflow: "hidden",
                     borderRadius: "1px",
-                    aspectRatio: "1/1",
-                    cursor: "pointer",
                   }}
                   onClick={() => setLightbox({ src: item.src, alt: item.alt })}
                   onMouseEnter={(e) => {

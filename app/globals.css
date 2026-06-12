@@ -210,27 +210,6 @@ h1, h2, h3, h4 {
   .portfolio-uniform { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
-/* Ornate gold picture frame */
-.portfolio-frame {
-  border-radius: 2px;
-  padding: 5px;
-  background: linear-gradient(135deg,
-    #6b4c11 0%,
-    #c9960c 12%,
-    #f5d060 25%,
-    #e8b923 37%,
-    #c9960c 50%,
-    #f5d060 63%,
-    #e8b923 75%,
-    #c9960c 88%,
-    #6b4c11 100%
-  );
-  box-shadow:
-    0 0 0 1px #4a3208,
-    inset 0 0 0 1px #4a3208,
-    0 6px 24px rgba(0,0,0,0.28),
-    0 2px 6px rgba(0,0,0,0.18);
-}
 
 /* 2-col stagger image grid (about page) → 2-col stays, just fix offset */
 .stagger-grid {
