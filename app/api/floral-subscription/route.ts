@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
 
   const { error } = await resend.emails.send({
     from: "The Hosting House NC <onboarding@resend.dev>",
-    to: "steinbros1012@gmail.com",
+    to: "ethan@buildsiteco.com",
     replyTo: data.email,
     subject: `Floral Club Signup: ${data.name}`,
     html,
