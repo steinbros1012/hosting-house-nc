@@ -256,38 +256,42 @@ export default function PortfolioPage() {
         </AnimateIn>
       </section>
 
-      {/* MASONRY GRID */}
+      {/* UNIFORM GRID */}
       <section style={{ backgroundColor: "#ffffff", padding: "0 20px 80px" }}>
-        <div className="container masonry-grid">
+        <div
+          className="container"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "10px",
+          }}
+        >
           {filtered.map((item, i) => (
-            <AnimateIn
-              key={item.src}
-              delay={i * 50}
-              style={{
-                breakInside: "avoid",
-                marginBottom: "12px",
-                cursor: "pointer",
-                display: "block",
-              }}
-            >
+            <AnimateIn key={item.src} delay={i * 40}>
               <div
                 style={{
                   position: "relative",
                   overflow: "hidden",
                   borderRadius: "3px",
-                  aspectRatio: item.tall ? "3/4" : "4/3",
+                  aspectRatio: "1/1",
+                  cursor: "pointer",
                 }}
                 onClick={() => setLightbox({ src: item.src, alt: item.alt })}
+                onMouseEnter={(e) => {
+                  const overlay = e.currentTarget.querySelector<HTMLDivElement>(".portfolio-overlay");
+                  if (overlay) overlay.style.opacity = "1";
+                }}
+                onMouseLeave={(e) => {
+                  const overlay = e.currentTarget.querySelector<HTMLDivElement>(".portfolio-overlay");
+                  if (overlay) overlay.style.opacity = "0";
+                }}
               >
                 <Image
                   src={item.src}
                   alt={item.alt}
                   fill
-                  style={{
-                    objectFit: "cover",
-                    transition: "transform 0.5s ease",
-                  }}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
+                  sizes="(max-width: 640px) 50vw, 33vw"
                   onMouseEnter={(e) =>
                     ((e.target as HTMLImageElement).style.transform = "scale(1.05)")
                   }
@@ -296,36 +300,24 @@ export default function PortfolioPage() {
                   }
                 />
                 <div
+                  className="portfolio-overlay"
                   style={{
                     position: "absolute",
                     inset: 0,
-                    backgroundColor: "rgba(48,66,84,0)",
-                    transition: "background-color 0.3s ease",
+                    backgroundColor: "rgba(48,66,84,0.4)",
                     display: "flex",
                     alignItems: "flex-end",
-                    padding: "20px",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.backgroundColor =
-                      "rgba(48,66,84,0.4)";
-                    const p = e.currentTarget.querySelector("p");
-                    if (p) p.style.opacity = "1";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.backgroundColor =
-                      "rgba(48,66,84,0)";
-                    const p = e.currentTarget.querySelector("p");
-                    if (p) p.style.opacity = "0";
+                    padding: "16px",
+                    opacity: 0,
+                    transition: "opacity 0.3s ease",
                   }}
                 >
                   <p
                     style={{
                       fontFamily: "var(--font-cormorant)",
-                      fontSize: "18px",
+                      fontSize: "16px",
                       fontStyle: "italic",
                       color: "#ffffff",
-                      opacity: 0,
-                      transition: "opacity 0.3s ease",
                       pointerEvents: "none",
                     }}
                   >

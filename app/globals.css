@@ -205,16 +205,9 @@ h1, h2, h3, h4 {
   }
 }
 
-/* Masonry grid responsive */
-.masonry-grid {
-  columns: 3;
-  column-gap: 12px;
-}
-@media (max-width: 900px) {
-  .masonry-grid { columns: 2; }
-}
-@media (max-width: 480px) {
-  .masonry-grid { columns: 1; }
+/* Portfolio uniform grid — mobile override */
+@media (max-width: 600px) {
+  .portfolio-uniform { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
 /* 2-col stagger image grid (about page) → 2-col stays, just fix offset */
