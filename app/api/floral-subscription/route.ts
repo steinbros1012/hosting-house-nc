@@ -44,18 +44,36 @@ export async function POST(request: NextRequest) {
     Notes: data.notes || "None",
   };
 
-  const res = await fetch("https://formsubmit.co/ajax/steinbros1012@gmail.com", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
+  let res: Response;
+  try {
+    res = await fetch("https://formsubmit.co/ajax/steinbros1012@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+  } catch (err) {
+    console.error("Formsubmit network error:", err);
+    return NextResponse.json(
+      { error: "Something went wrong. Please try again." },
+      { status: 500 }
+    );
+  }
 
-  const result = await res.json();
+  let result: { success?: boolean | string; message?: string };
+  try {
+    result = await res.json();
+  } catch {
+    console.error("Formsubmit non-JSON response (activation may be required)");
+    return NextResponse.json(
+      { error: "Something went wrong. Please try again." },
+      { status: 500 }
+    );
+  }
 
-  if (!result.success) {
+  if (result.success !== true && result.success !== "true") {
     console.error("Formsubmit error:", result);
     return NextResponse.json(
       { error: "Something went wrong. Please try again." },
