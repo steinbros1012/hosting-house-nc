@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     Message: data.message,
   };
 
-  const res = await fetch("https://formsubmit.co/ajax/hostinghousenc@gmail.com", {
+  const res = await fetch("https://formsubmit.co/ajax/steinbros1012@gmail.com", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
