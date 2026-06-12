@@ -103,7 +103,6 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <nav
             style={{
-              display: "flex",
               alignItems: "center",
               gap: "32px",
             }}
