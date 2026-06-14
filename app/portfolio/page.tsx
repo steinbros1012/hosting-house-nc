@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AnimateIn from "@/components/AnimateIn";
-import OrnateFrame from "@/components/OrnateFrame";
 
 const categories = ["All", "Florals", "Tablescapes", "Events", "Parties"];
 
@@ -268,15 +267,14 @@ export default function PortfolioPage() {
         >
           {filtered.map((item, i) => (
             <AnimateIn key={item.src} delay={i * 40}>
-              <OrnateFrame>
-                <div
-                  style={{
-                    position: "relative",
-                    overflow: "hidden",
-                    aspectRatio: "1/1",
-                    cursor: "pointer",
-                    borderRadius: "1px",
-                  }}
+              <div
+                style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  aspectRatio: "1/1",
+                  cursor: "pointer",
+                  borderRadius: "3px",
+                }}
                   onClick={() => setLightbox({ src: item.src, alt: item.alt })}
                   onMouseEnter={(e) => {
                     const overlay = e.currentTarget.querySelector<HTMLDivElement>(".portfolio-overlay");
@@ -326,7 +324,6 @@ export default function PortfolioPage() {
                     </p>
                   </div>
                 </div>
-              </OrnateFrame>
             </AnimateIn>
           ))}
         </div>
