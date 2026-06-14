@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "Boutique event planning and floral design studio in North Carolina. Creating beautiful, thoughtfully crafted celebrations.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=80",
+        url: "/images/portfolio/IMG_6227.JPG",
         width: 1200,
         height: 630,
         alt: "The Hosting House NC — Elegant Event Design",

@@ -6,7 +6,12 @@ import AnimateIn from "@/components/AnimateIn";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Meet Meredith Parker and Susanna Thomas, the founders behind The Hosting House NC. Two Southern women with a passion for beautiful gatherings and heartfelt hospitality.",
+    "Meet Meredith and Susanna, the duo behind The Hosting House NC. Boutique event planners and floral designers based in North Carolina with a passion for beautiful, heartfelt gatherings.",
+  openGraph: {
+    title: "About The Hosting House NC",
+    description: "Meet Meredith and Susanna — North Carolina event planners and floral designers who bring warmth and beauty to every celebration.",
+    images: [{ url: "/images/founders.jpg", width: 1200, height: 630, alt: "Meredith and Susanna, founders of The Hosting House NC" }],
+  },
 };
 
 const values = [

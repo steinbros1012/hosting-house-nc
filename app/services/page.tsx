@@ -6,7 +6,12 @@ import AnimateIn from "@/components/AnimateIn";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "The Hosting House NC offers full-service event planning, event design, and custom floral design for weddings, celebrations, and special events throughout North Carolina.",
+    "Full-service event planning, day-of coordination, event design, and custom floral arrangements for weddings, showers, and celebrations across North Carolina.",
+  openGraph: {
+    title: "Event Planning & Floral Design Services | The Hosting House NC",
+    description: "From full-service wedding planning to custom floral arrangements — we handle every detail so you can enjoy your celebration.",
+    images: [{ url: "/images/portfolio/IMG_6227.JPG", width: 1200, height: 630, alt: "The Hosting House NC event design and florals" }],
+  },
 };
 
 const services = [

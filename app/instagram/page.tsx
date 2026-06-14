@@ -6,7 +6,12 @@ import AnimateIn from "@/components/AnimateIn";
 export const metadata: Metadata = {
   title: "Instagram",
   description:
-    "Follow @hostinghousenc on Instagram for behind-the-scenes content, fresh floral arrangements, and event inspiration.",
+    "Follow @hostinghousenc on Instagram for behind-the-scenes floral design, event styling inspiration, and a peek at our latest celebrations across North Carolina.",
+  openGraph: {
+    title: "The Hosting House NC on Instagram",
+    description: "Behind-the-scenes florals, tablescapes, and event styling from Meredith and Susanna. Follow us @hostinghousenc.",
+    images: [{ url: "/images/portfolio/DSC00970.JPG", width: 1200, height: 630, alt: "The Hosting House NC floral design" }],
+  },
 };
 
 const INSTAGRAM_URL = "https://www.instagram.com/hostinghousenc";
