@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Ballet, Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -27,19 +28,20 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.hostinghousenc.com"),
   title: {
     default: "The Hosting House NC — Event Planning & Floral Design",
     template: "%s | The Hosting House NC",
   },
   description:
-    "The Hosting House NC is a boutique event planning and floral design studio serving North Carolina. We create beautifully crafted weddings, celebrations, and gatherings with a signature Southern touch.",
+    "The Hosting House NC is a boutique event planning and floral design studio serving Raleigh, North Carolina. We create beautifully crafted celebrations and gatherings with a signature Southern touch.",
   keywords: [
     "event planning North Carolina",
     "floral design NC",
-    "wedding planner Raleigh",
+    "event planner Raleigh",
     "event design NC",
     "floral arrangements",
-    "wedding florals",
+    "floral design Raleigh",
     "event coordinator",
     "Hosting House NC",
   ],
@@ -51,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "The Hosting House NC",
     title: "The Hosting House NC — Event Planning & Floral Design",
     description:
-      "Boutique event planning and floral design studio in North Carolina. Creating beautiful, thoughtfully crafted celebrations.",
+      "Boutique event planning and floral design studio in Raleigh, North Carolina. Creating beautiful, thoughtfully crafted celebrations.",
     images: [
       {
         url: "/images/portfolio/IMG_6227.JPG",
@@ -65,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Hosting House NC — Event Planning & Floral Design",
     description:
-      "Boutique event planning and floral design studio in North Carolina.",
+      "Boutique event planning and floral design studio in Raleigh, North Carolina.",
   },
   robots: {
     index: true,
@@ -79,9 +81,8 @@ const jsonLd = {
   "@id": "https://www.hostinghousenc.com",
   name: "The Hosting House NC",
   description:
-    "Boutique event planning and floral design studio serving North Carolina. We create beautifully crafted weddings, celebrations, and gatherings with a signature Southern touch.",
+    "Boutique event planning and floral design studio serving Raleigh, North Carolina. We create beautifully crafted celebrations and gatherings with a signature Southern touch.",
   url: "https://www.hostinghousenc.com",
-  telephone: "",
   email: "hello@hostinghousenc.com",
   address: {
     "@type": "PostalAddress",
@@ -103,13 +104,13 @@ const jsonLd = {
   ],
   sameAs: ["https://www.instagram.com/hostinghousenc"],
   serviceType: [
-    "Wedding Planning",
     "Event Planning",
     "Floral Design",
     "Floral Arrangements",
-    "Bridal Shower Planning",
     "Baby Shower Planning",
+    "Birthday Party Planning",
     "Corporate Event Planning",
+    "Dinner Party Planning",
   ],
   priceRange: "$$",
   openingHoursSpecification: {
@@ -147,6 +148,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
