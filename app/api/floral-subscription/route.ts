@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 interface SignupBody {
   name: string;
@@ -32,31 +32,26 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Please provide a valid email address." }, { status: 400 });
   }
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "steinbros1012@gmail.com",
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-  });
-
-  const text = [
-    `Name: ${data.name}`,
-    `Email: ${data.email}`,
-    `Phone: ${data.phone || "Not provided"}`,
-    `Delivery Address: ${data.address || "Not provided"}`,
-    `City / Area: ${data.city || "Not provided"}`,
-    `Style Preference: ${data.preference || "No preference selected"}`,
-    `Notes: ${data.notes || "None"}`,
-  ].join("\n");
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
-    await transporter.sendMail({
-      from: "steinbros1012@gmail.com",
+    await resend.emails.send({
+      from: "The Hosting House NC <noreply@buildsiteco.com>",
       to: "steinbros1012@gmail.com",
       replyTo: data.email,
       subject: `Floral Club Signup: ${data.name}`,
-      text,
+      html: `
+        <h2>New Floral Club Signup</h2>
+        <table style="border-collapse:collapse;width:100%">
+          <tr><td style="padding:8px;font-weight:bold">Name</td><td style="padding:8px">${data.name}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Email</td><td style="padding:8px">${data.email}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Phone</td><td style="padding:8px">${data.phone || "Not provided"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Delivery Address</td><td style="padding:8px">${data.address || "Not provided"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">City / Area</td><td style="padding:8px">${data.city || "Not provided"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Style Preference</td><td style="padding:8px">${data.preference || "No preference selected"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Notes</td><td style="padding:8px">${data.notes || "None"}</td></tr>
+        </table>
+      `,
     });
   } catch (err) {
     console.error("Mail error:", err);

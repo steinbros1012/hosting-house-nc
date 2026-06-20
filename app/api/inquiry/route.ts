@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 interface InquiryBody {
   name: string;
@@ -46,36 +46,29 @@ export async function POST(request: NextRequest) {
       ? data.services.join(", ")
       : "Not specified";
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "steinbros1012@gmail.com",
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-  });
-
-  const text = [
-    `Name: ${data.name}`,
-    `Email: ${data.email}`,
-    `Phone: ${data.phone || "Not provided"}`,
-    `Event Type: ${data.eventType}`,
-    `Event Date: ${data.eventDate || "Not specified"}`,
-    `Venue: ${data.venue || "Not specified"}`,
-    `Guest Count: ${data.guestCount || "Not specified"}`,
-    `Budget: ${data.budget || "Not specified"}`,
-    `Services: ${servicesText}`,
-    ``,
-    `Message:`,
-    data.message,
-  ].join("\n");
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
-    await transporter.sendMail({
-      from: "steinbros1012@gmail.com",
-      to: "steinbros1012@gmail.com",
+    await resend.emails.send({
+      from: "The Hosting House NC <noreply@buildsiteco.com>",
+      to: "hello@hostinghousenc.com",
       replyTo: data.email,
-      subject: `New Inquiry: ${data.eventType} — ${data.name}`,
-      text,
+      subject: `New Inquiry: ${data.eventType} - ${data.name}`,
+      html: `
+        <h2>New Event Inquiry</h2>
+        <table style="border-collapse:collapse;width:100%">
+          <tr><td style="padding:8px;font-weight:bold">Name</td><td style="padding:8px">${data.name}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Email</td><td style="padding:8px">${data.email}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Phone</td><td style="padding:8px">${data.phone || "Not provided"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Event Type</td><td style="padding:8px">${data.eventType}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Event Date</td><td style="padding:8px">${data.eventDate || "Not specified"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Venue</td><td style="padding:8px">${data.venue || "Not specified"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Guest Count</td><td style="padding:8px">${data.guestCount || "Not specified"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Budget</td><td style="padding:8px">${data.budget || "Not specified"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Services</td><td style="padding:8px">${servicesText}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Message</td><td style="padding:8px">${data.message}</td></tr>
+        </table>
+      `,
     });
   } catch (err) {
     console.error("Mail error:", err);
