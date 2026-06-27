@@ -25,7 +25,7 @@ const posts = [
   {
     src: "/images/instagram/post1.jpg",
     alt: "Hosting House NC event styling",
-    caption: "The softest shades of pink for a Saturday bridal shower.",
+    caption: "The softest shades of pink for a Saturday baby shower.",
   },
   {
     src: "/images/instagram/post2.jpg",
@@ -35,7 +35,7 @@ const posts = [
   {
     src: "/images/instagram/post3.jpg",
     alt: "Hosting House NC celebration",
-    caption: "For the bride who wanted garden-fresh and effortless.",
+    caption: "For the host who wanted garden-fresh and effortless.",
   },
   {
     src: "/images/instagram/post4.jpg",
@@ -59,7 +59,7 @@ const posts = [
   },
   {
     src: "/images/instagram/post9.jpg",
-    alt: "Hosting House NC outdoor wedding",
+    alt: "Hosting House NC outdoor gathering",
     caption: "Summer under the trees. Could not have dreamed it better.",
   },
   {
@@ -317,7 +317,7 @@ export default function InstagramPage() {
       >
         <AnimateIn>
           <Image
-            src="/logo-transparent.svg"
+            src="/logo.png"
             width={160}
             height={120}
             alt="The Hosting House NC"

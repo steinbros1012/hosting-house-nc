@@ -6,82 +6,55 @@ import AnimateIn from "@/components/AnimateIn";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Meet Meredith and Susanna, the duo behind The Hosting House NC. Boutique event planners and floral designers based in North Carolina with a passion for beautiful, heartfelt gatherings.",
+    "Meet Meredith and Susanna, the duo behind The Hosting House NC. Boutique event planners and floral designers based in Raleigh, North Carolina with a passion for beautiful, heartfelt gatherings.",
   openGraph: {
     title: "About The Hosting House NC",
-    description: "Meet Meredith and Susanna — North Carolina event planners and floral designers who bring warmth and beauty to every celebration.",
+    description: "Meet Meredith and Susanna — Raleigh, North Carolina event planners and floral designers who bring warmth and beauty to every celebration.",
     images: [{ url: "/images/founders.jpg", width: 1200, height: 630, alt: "Meredith and Susanna, founders of The Hosting House NC" }],
   },
 };
 
 const values = [
   {
-    title: "Intentionality",
+    title: "Trust",
     description:
-      "Every decision we make, from the bloom selection to the table linen, is purposeful. We never settle for good enough when something can be genuinely beautiful.",
+      "We communicate clearly and consistently so you always know where things stand.",
   },
   {
     title: "Warmth",
     description:
-      "We believe the best events feel like a welcome embrace. Our work is rooted in genuine care for our clients and their guests.",
+      "Every celebration should feel like a genuine welcome — inviting, beautiful and effortless.",
   },
   {
-    title: "Artistry",
+    title: "Grace",
     description:
-      "We approach every celebration as a creative project. The details matter, the aesthetics matter, and so does the feeling a space creates when guests walk in.",
+      "We navigate the unexpected with poise and calm.",
   },
   {
-    title: "Trust",
+    title: "Attention to Detail",
     description:
-      "You are sharing one of life's most meaningful moments with us. We hold that responsibility with gratitude and take it seriously at every step.",
+      "Nothing is an afterthought. Each element is considered and purposeful.",
   },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      {/* PAGE HERO — blush background with logo graphic, matching brand style */}
-      <section className="about-hero-blush">
+      {/* PAGE HERO */}
+      <section className="page-hero-blush">
         <AnimateIn>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginBottom: "8px",
-            }}
-          >
-            <Image
-              src="/logo-transparent.svg"
-              width={320}
-              height={240}
-              alt="The Hosting House NC"
-              priority
-              style={{ maxWidth: "min(320px, 72vw)", height: "auto" }}
-            />
-          </div>
           <h1
             style={{
               fontFamily: "var(--font-ballet)",
-              fontSize: "clamp(44px, 7vw, 76px)",
+              fontSize: "clamp(56px, 10vw, 100px)",
               fontWeight: 400,
               color: "#cd8b91",
               lineHeight: 1.1,
-              marginBottom: "8px",
+              marginBottom: "0",
             }}
           >
-            Meet the Team
+            Meet the Founders
           </h1>
-          <p
-            style={{
-              fontFamily: "var(--font-cormorant)",
-              fontSize: "18px",
-              fontStyle: "italic",
-              color: "#b07a80",
-              fontWeight: 300,
-            }}
-          >
-            The faces behind every beautiful celebration
-          </p>
         </AnimateIn>
       </section>
 
@@ -156,10 +129,10 @@ export default function AboutPage() {
                 marginBottom: "20px",
               }}
             >
-              The Hosting House is the brainchild of Meredith Parker and Susanna
-              Thomas. Both of their roots are firmly planted in the South,
-              Meredith hailing originally from Nashville, TN and Susanna born in
-              Macon, GA and raised right here in Raleigh.
+              The Hosting House was built on a simple belief: that life&apos;s
+              special moments deserve to be celebrated beautifully, and that
+              gathering the people you love is one of the most meaningful things
+              you can do.
             </p>
             <p
               style={{
@@ -170,10 +143,12 @@ export default function AboutPage() {
                 marginBottom: "20px",
               }}
             >
-              Through their friendship, they realized they shared a true love of
-              Southern hospitality and hosting. Together, they find joy in
-              creating beautiful, approachable, polished gatherings to celebrate
-              every milestone in life.
+              Meredith Parker grew up in Nashville, Tennessee, and Susanna
+              Thomas was born in Macon, Georgia and raised right here in Raleigh.
+              Long before they became business partners, Susanna and Meredith
+              were friends sitting at each other&apos;s tables, celebrating each
+              other&apos;s milestones, and quietly noticing that they approached
+              hospitality the same way.
             </p>
             <p
               style={{
@@ -184,9 +159,11 @@ export default function AboutPage() {
                 marginBottom: "36px",
               }}
             >
-              From baptisms and birthdays to corporate events and cocktail
-              parties, The Hosting House is here to greet you, offer you a drink,
-              and invite you in as we thoughtfully plan your next soiree.
+              That shared love of bringing people together is what The Hosting
+              House is built on. Their goal is to greet every client the way
+              they would greet a friend at their front door: with a drink in
+              hand, a listening ear, and a plan to make their celebration
+              everything they imagined.
             </p>
             <Link
               href="/inquiry"
@@ -244,9 +221,9 @@ export default function AboutPage() {
                 marginBottom: "32px",
               }}
             >
-              &ldquo;To greet every client the way we would a dear friend at our
-              front door: with warmth, a drink in hand, and a space that feels
-              made entirely for them.&rdquo;
+              &ldquo;To greet every client the way we would greet a friend at
+              our front door: with a drink in hand, a listening ear, and a plan
+              to make their celebration everything they imagined.&rdquo;
             </h2>
             <div
               style={{
@@ -333,129 +310,6 @@ export default function AboutPage() {
               </AnimateIn>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* WHY US SECTION */}
-      <section className="section-lg" style={{ backgroundColor: "#ffffff" }}>
-        <div className="container split-grid">
-          <AnimateIn delay={100}>
-            <p
-              style={{
-                fontFamily: "var(--font-dm-sans)",
-                fontSize: "11px",
-                fontWeight: 600,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#cd8b91",
-                marginBottom: "20px",
-              }}
-            >
-              Why Choose Us
-            </p>
-            <h2
-              style={{
-                fontFamily: "var(--font-cormorant)",
-                fontSize: "clamp(32px, 4vw, 48px)",
-                fontWeight: 400,
-                color: "#304254",
-                lineHeight: 1.2,
-                marginBottom: "32px",
-              }}
-            >
-              A Studio Built Around
-              <em style={{ display: "block" }}>You and Your Vision</em>
-            </h2>
-
-            {[
-              "Full-service planning, design, and florals under one roof",
-              "Personalized experience for every client, every time",
-              "Deep roots in North Carolina with a Southern sensibility",
-              "Transparent, collaborative process from first inquiry to final send-off",
-              "A genuine investment in making your celebration unforgettable",
-            ].map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "16px",
-                  marginBottom: "20px",
-                }}
-              >
-                <div
-                  style={{
-                    width: "6px",
-                    height: "6px",
-                    backgroundColor: "#cd8b91",
-                    borderRadius: "50%",
-                    flexShrink: 0,
-                    marginTop: "8px",
-                  }}
-                />
-                <p
-                  style={{
-                    fontFamily: "var(--font-dm-sans)",
-                    fontSize: "15px",
-                    lineHeight: 1.7,
-                    color: "#5a5a5a",
-                  }}
-                >
-                  {item}
-                </p>
-              </div>
-            ))}
-
-            <Link
-              href="/services"
-              style={{
-                fontFamily: "var(--font-dm-sans)",
-                fontSize: "13px",
-                fontWeight: 500,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "#304254",
-                textDecoration: "none",
-                borderBottom: "1px solid #304254",
-                paddingBottom: "3px",
-                display: "inline-block",
-                marginTop: "12px",
-              }}
-            >
-              Explore Our Services
-            </Link>
-          </AnimateIn>
-
-          <AnimateIn direction="in">
-            <div className="why-grid">
-              {[
-                "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80",
-                "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=400&q=80",
-                "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80",
-                "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80",
-              ].map((src, i) => (
-                <div
-                  key={src}
-                  className={i === 1 || i === 3 ? "stagger-offset" : ""}
-                  style={{
-                    aspectRatio: "1/1",
-                    position: "relative",
-                    borderRadius: "4px",
-                    overflow: "hidden",
-                    marginTop: i === 1 || i === 3 ? "20px" : "0",
-                  }}
-                >
-                  <Image
-                    src={src}
-                    alt="Portfolio work by The Hosting House NC"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
-                </div>
-              ))}
-            </div>
-          </AnimateIn>
         </div>
       </section>
 

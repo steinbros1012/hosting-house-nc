@@ -8,28 +8,38 @@ import InstagramFeed from "@/components/InstagramFeed";
 export const metadata: Metadata = {
   title: "The Hosting House NC — Boutique Event Planning & Floral Design",
   description:
-    "North Carolina's boutique event planning and floral design studio. We create beautifully crafted weddings, celebrations, and gatherings with a signature Southern touch.",
+    "Raleigh, North Carolina's boutique event planning and floral design studio. We create beautifully crafted celebrations and gatherings with a signature Southern touch.",
+  openGraph: {
+    title: "The Hosting House NC — Event Planning & Floral Design",
+    description: "Boutique event planning and floral design in Raleigh, NC. Creating gracious gatherings and bespoke blooms for milestone moments.",
+    images: [{ url: "/images/portfolio/IMG_3728.JPG", width: 1200, height: 630, alt: "The Hosting House NC — Event Design and Florals" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Hosting House NC — Event Planning & Floral Design",
+    description: "Boutique event planning and floral design in Raleigh, NC.",
+  },
 };
 
 const services = [
   {
-    title: "Event Planning",
+    title: "The Full Celebration",
     description:
-      "From intimate gatherings to grand celebrations, we handle every detail so you can be present in the moments that matter most.",
+      "You want to be a guest at your own event.",
     icon: "✦",
     href: "/services#planning",
   },
   {
-    title: "Event Design",
+    title: "The Final Details",
     description:
-      "We translate your vision into a cohesive aesthetic experience, from tablescapes and lighting to custom decor that tells your story.",
+      "You have most of the plans in place and need someone you trust to see them through.",
     icon: "◇",
     href: "/services#design",
   },
   {
-    title: "Floral Design",
+    title: "The Finishing Touch",
     description:
-      "Beautiful floral arrangements that set the tone for your celebration: centerpieces, installations, bridal florals, and more.",
+      "You need beautiful, intentional florals to tie it all together.",
     icon: "❀",
     href: "/services#florals",
   },
@@ -68,26 +78,6 @@ const portfolioImages = [
   },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "Meredith and Susanna turned our wedding vision into something even more beautiful than we imagined. Every detail was perfect, and we were completely at ease knowing they had it all handled.",
-    name: "Sarah & James",
-    event: "Wedding, Raleigh NC",
-  },
-  {
-    quote:
-      "The florals for our baby shower were absolutely stunning. So many guests asked who designed them. I cannot recommend The Hosting House enough.",
-    name: "Emily R.",
-    event: "Baby Shower, Durham NC",
-  },
-  {
-    quote:
-      "From our first inquiry call to the final send-off, working with The Hosting House felt like collaborating with close friends who just happened to have incredible taste.",
-    name: "The Morrison Family",
-    event: "Anniversary Celebration",
-  },
-];
 
 
 export default function HomePage() {
@@ -97,102 +87,88 @@ export default function HomePage() {
       <section
         style={{
           position: "relative",
-          height: "100svh",
-          minHeight: "600px",
+          minHeight: "100svh",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           overflow: "hidden",
+          backgroundColor: "#fdf5f6",
         }}
       >
         <Image
-          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=2000&q=85"
-          alt="Beautifully designed event with lush florals"
+          src="/images/portfolio/IMG_3728.JPG"
+          alt="Silver urn with roses and florals by The Hosting House NC"
           fill
           priority
           style={{ objectFit: "cover", objectPosition: "center 40%" }}
           sizes="100vw"
         />
-        {/* Dark overlay — rose logo reads naturally on this */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.65) 55%, rgba(0,0,0,0.84) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.58) 55%, rgba(0,0,0,0.78) 100%)",
           }}
         />
+
         <div
           style={{
             position: "relative",
             zIndex: 10,
             textAlign: "center",
-            padding: "0 24px",
+            padding: "clamp(100px, 15vw, 140px) 24px clamp(60px, 8vw, 100px)",
             maxWidth: "800px",
           }}
         >
-          {/* Hero wordmark — typographic treatment, no SVG white-box issues */}
-          <div className="animate-fade-up" style={{ marginBottom: "32px" }}>
-            <p
-              style={{
-                fontFamily: "var(--font-ballet)",
-                fontSize: "clamp(28px, 4.5vw, 52px)",
-                fontWeight: 400,
-                color: "rgba(255,255,255,0.82)",
-                lineHeight: 1,
-                marginBottom: "4px",
-              }}
-            >
-              The
-            </p>
-            <h1
-              style={{
-                fontFamily: "var(--font-cormorant)",
-                fontSize: "clamp(48px, 9vw, 104px)",
-                fontWeight: 400,
-                color: "#ffffff",
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                lineHeight: 1,
-                marginBottom: "10px",
-                textShadow: "0 2px 24px rgba(0,0,0,0.3)",
-              }}
-            >
-              Hosting House
-            </h1>
-            <p
-              style={{
-                fontFamily: "var(--font-dm-sans)",
-                fontSize: "11px",
-                fontWeight: 500,
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-                color: "#e8a8ae",
-              }}
-            >
-              North Carolina
-            </p>
-          </div>
+          <h1
+            className="animate-fade-up"
+            style={{
+              fontFamily: "var(--font-ballet)",
+              fontSize: "clamp(52px, 9vw, 110px)",
+              fontWeight: 400,
+              color: "#ffffff",
+              lineHeight: 1.05,
+              marginBottom: "20px",
+              textShadow: "0 2px 20px rgba(0,0,0,0.25)",
+            }}
+          >
+            The Hosting House
+          </h1>
+
           <p
             className="animate-fade-up delay-100"
             style={{
-              fontFamily: "var(--font-cormorant)",
-              fontSize: "clamp(17px, 2.2vw, 22px)",
-              fontWeight: 300,
-              fontStyle: "italic",
-              color: "rgba(255,255,255,0.92)",
-              lineHeight: 1.7,
-              marginBottom: "40px",
-              maxWidth: "520px",
-              margin: "0 auto 40px",
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: "11px",
+              fontWeight: 500,
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: "#e8a8ae",
+              marginBottom: "20px",
             }}
           >
-            Creating beautiful, thoughtfully crafted celebrations for life&apos;s
-            most meaningful moments.
+            Raleigh, North Carolina
           </p>
-          <div
-            className="animate-fade-up delay-200 hero-ctas"
+
+          <p
+            className="animate-fade-up delay-150"
+            style={{
+              fontFamily: "var(--font-cormorant)",
+              fontSize: "clamp(18px, 2.4vw, 24px)",
+              fontWeight: 300,
+              fontStyle: "italic",
+              color: "rgba(255,255,255,0.88)",
+              lineHeight: 1.7,
+              maxWidth: "480px",
+              margin: "0 auto 44px",
+            }}
           >
+            Creating gracious gatherings and bespoke blooms for milestone moments.
+          </p>
+
+          <div className="animate-fade-up delay-200 hero-ctas">
             <Link
               href="/inquiry"
               style={{
@@ -235,7 +211,7 @@ export default function HomePage() {
           className="animate-fade-in delay-500"
           style={{
             position: "absolute",
-            bottom: "36px",
+            bottom: "16px",
             left: "50%",
             transform: "translateX(-50%)",
             zIndex: 10,
@@ -282,7 +258,7 @@ export default function HomePage() {
                 marginBottom: "16px",
               }}
             >
-              What We Do
+              A full suite of event planning and floral design services
             </p>
             <h2
               style={{
@@ -293,7 +269,7 @@ export default function HomePage() {
                 lineHeight: 1.15,
               }}
             >
-              A Full Suite of Event Services
+              What We Bring to the Table
             </h2>
           </AnimateIn>
 
@@ -361,25 +337,14 @@ export default function HomePage() {
                 fontSize: "15px",
                 lineHeight: 1.85,
                 color: "#5a5a5a",
-                marginBottom: "20px",
-              }}
-            >
-              The Hosting House is the brainchild of Meredith Parker and
-              Susanna Thomas, two women who share a deep passion for
-              hospitality, beautiful design, and the art of gathering.
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-dm-sans)",
-                fontSize: "15px",
-                lineHeight: 1.85,
-                color: "#5a5a5a",
                 marginBottom: "36px",
               }}
             >
-              Rooted in the South and guided by intention, we built this studio
-              to help clients host the kind of events they will talk about for
-              years to come.
+              The Hosting House was founded by two friends, Meredith Parker and
+              Susanna Thomas, who share a love of Southern hospitality,
+              hostessing and bringing people together. They believe that the
+              best celebrations aren&apos;t just beautiful; they&apos;re the
+              ones people carry with them long after the last guest leaves.
             </p>
             <Link
               href="/about"
@@ -473,97 +438,6 @@ export default function HomePage() {
               View Full Portfolio
             </Link>
           </AnimateIn>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="section-lg" style={{ backgroundColor: "#ffffff" }}>
-        <div className="container">
-          <AnimateIn style={{ textAlign: "center", marginBottom: "64px" }}>
-            <p
-              style={{
-                fontFamily: "var(--font-dm-sans)",
-                fontSize: "11px",
-                fontWeight: 600,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#cd8b91",
-                marginBottom: "16px",
-              }}
-            >
-              Client Love
-            </p>
-            <h2
-              style={{
-                fontFamily: "var(--font-cormorant)",
-                fontSize: "clamp(36px, 5vw, 56px)",
-                fontWeight: 400,
-                color: "#304254",
-              }}
-            >
-              What Our Clients Say
-            </h2>
-          </AnimateIn>
-
-          <div className="testimonials-grid">
-            {testimonials.map((t, i) => (
-              <AnimateIn key={t.name} delay={i * 120}>
-                <div className="testimonial-card">
-                  <div
-                    style={{
-                      fontFamily: "var(--font-cormorant)",
-                      fontSize: "clamp(36px, 8vw, 60px)",
-                      lineHeight: 0.75,
-                      color: "#cd8b91",
-                      marginBottom: "20px",
-                    }}
-                  >
-                    &ldquo;
-                  </div>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-cormorant)",
-                      fontSize: "19px",
-                      fontStyle: "italic",
-                      lineHeight: 1.65,
-                      color: "#304254",
-                      marginBottom: "28px",
-                    }}
-                  >
-                    {t.quote}
-                  </p>
-                  <div
-                    style={{
-                      width: "32px",
-                      height: "1px",
-                      backgroundColor: "#cd8b91",
-                      marginBottom: "14px",
-                    }}
-                  />
-                  <p
-                    style={{
-                      fontFamily: "var(--font-dm-sans)",
-                      fontSize: "13px",
-                      fontWeight: 600,
-                      color: "#304254",
-                      marginBottom: "4px",
-                    }}
-                  >
-                    {t.name}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-dm-sans)",
-                      fontSize: "12px",
-                      color: "#9a9a9a",
-                    }}
-                  >
-                    {t.event}
-                  </p>
-                </div>
-              </AnimateIn>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -689,7 +563,7 @@ export default function HomePage() {
             }}
           >
             We would love to hear about your event. Reach out and let&apos;s begin
-            crafting something truly beautiful together.
+            crafting something beautiful together.
           </p>
           <Link
             href="/inquiry"

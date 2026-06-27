@@ -418,6 +418,25 @@ h1, h2, h3, h4 {
   flex-wrap: wrap;
 }
 
+/* Service detail grid (what's included + ideal for) */
+.service-detail-grid {
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 640px) {
+  .service-detail-grid { grid-template-columns: 1fr; gap: 28px !important; }
+}
+
+/* Process steps grid (5 equal columns) */
+.process-steps-grid {
+  grid-template-columns: repeat(5, 1fr);
+}
+@media (max-width: 768px) {
+  .process-steps-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .process-steps-grid { grid-template-columns: 1fr; }
+}
+
 /* Values grid */
 .values-grid {
   display: grid;
@@ -612,13 +631,15 @@ h1, h2, h3, h4 {
   filter: brightness(0) invert(1);
 }
 
-/* About page blush hero */
-.about-hero-blush {
+/* Shared blush page hero (About, Services, Portfolio) */
+.page-hero-blush {
   background-color: #fdf5f6;
-  padding-top: 120px;
-  padding-bottom: 60px;
+  padding-top: clamp(120px, 18vw, 160px);
+  padding-bottom: clamp(60px, 8vw, 80px);
   text-align: center;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 @media (max-width: 768px) {
-  .about-hero-blush { padding-top: 100px; padding-bottom: 40px; }
+  .page-hero-blush { padding-top: 110px; padding-bottom: 48px; }
 }

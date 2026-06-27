@@ -38,7 +38,7 @@ export default function Footer() {
           <div>
             <div style={{ marginBottom: "20px" }}>
               <Image
-                src="/logo-transparent.svg"
+                src="/logo.png"
                 alt="The Hosting House NC"
                 width={160}
                 height={120}
@@ -55,7 +55,7 @@ export default function Footer() {
                 maxWidth: "260px",
               }}
             >
-              Boutique event planning and floral design in North Carolina,
+              Boutique event planning and floral design in Raleigh, North Carolina,
               crafted with Southern heart and a refined eye for beauty.
             </p>
             <a
@@ -137,12 +137,25 @@ export default function Footer() {
                 fontSize: "14px",
                 color: "rgba(255,255,255,0.65)",
                 lineHeight: 1.7,
-                marginBottom: "24px",
+                marginBottom: "16px",
               }}
             >
               Ready to bring your vision to life? We would love to hear about
               your celebration.
             </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "20px" }}>
+              <a
+                href="mailto:hello@hostinghousenc.com"
+                style={{
+                  fontFamily: "var(--font-dm-sans)",
+                  fontSize: "13px",
+                  color: "#cd8b91",
+                  textDecoration: "none",
+                }}
+              >
+                hello@hostinghousenc.com
+              </a>
+            </div>
             <Link
               href="/inquiry"
               style={{
@@ -191,7 +204,7 @@ export default function Footer() {
               color: "rgba(255,255,255,0.4)",
             }}
           >
-            Meredith Parker &amp; Susanna Thomas &mdash; North Carolina
+            Meredith Parker &amp; Susanna Thomas &mdash; Raleigh, North Carolina
           </p>
         </div>
       </div>

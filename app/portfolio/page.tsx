@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimateIn from "@/components/AnimateIn";
 
-const categories = ["All", "Florals", "Tablescapes", "Events", "Parties"];
+const categories = ["All", "Florals", "Tablescapes", "Parties"];
 
 const portfolioItems = [
   {
@@ -21,13 +21,6 @@ const portfolioItems = [
     category: "Florals",
     title: "Garden Party Florals",
     tall: true,
-  },
-  {
-    src: "/images/portfolio/DSC00781.JPG",
-    alt: "Meredith and Susanna at a Caftans and Cocktails party",
-    category: "Events",
-    title: "Caftans & Cocktails",
-    tall: false,
   },
   {
     src: "/images/portfolio/IMG_3728.JPG",
@@ -46,7 +39,7 @@ const portfolioItems = [
   {
     src: "/images/portfolio/DSC00295.JPG",
     alt: "Disco ball cake reading Calpenia and Cocktails",
-    category: "Events",
+    category: "Parties",
     title: "Caftans & Cocktails Cake",
     tall: true,
   },
@@ -67,15 +60,8 @@ const portfolioItems = [
   {
     src: "/images/portfolio/DSC00345.JPG",
     alt: "Branded white gift boxes with ribbons and The Hosting House tags",
-    category: "Events",
+    category: "Parties",
     title: "Custom Party Favors",
-    tall: true,
-  },
-  {
-    src: "/images/portfolio/IMG_5317.jpg",
-    alt: "Founder at a decorated dinner table with a pink birthday cake",
-    category: "Events",
-    title: "Pink Birthday Dinner",
     tall: true,
   },
   {
@@ -102,14 +88,14 @@ const portfolioItems = [
   {
     src: "/images/portfolio/DSC00392.JPG",
     alt: "Silver punch bowl with citrus slices and flowers",
-    category: "Events",
+    category: "Parties",
     title: "Garden Party Punch Bowl",
     tall: true,
   },
   {
     src: "/images/portfolio/IMG_4845.JPG",
     alt: "Outdoor cocktail bar with custom signature cocktail menu",
-    category: "Events",
+    category: "Parties",
     title: "Signature Cocktail Bar",
     tall: true,
   },
@@ -130,7 +116,7 @@ const portfolioItems = [
   {
     src: "/images/portfolio/IMG_0454.jpg",
     alt: "Holiday chandelier with pink ribbons and floral centerpiece",
-    category: "Events",
+    category: "Parties",
     title: "Holiday Dinner Party",
     tall: true,
   },
@@ -144,7 +130,7 @@ const portfolioItems = [
   {
     src: "/images/portfolio/DSC00463.JPG",
     alt: "Caftans and Cocktails retro-style cocktail menu in a gold frame",
-    category: "Events",
+    category: "Parties",
     title: "Caftans & Cocktails Menu",
     tall: true,
   },
@@ -162,54 +148,19 @@ export default function PortfolioPage() {
   return (
     <>
       {/* HEADER */}
-      <section
-        style={{
-          paddingTop: "clamp(100px, 15vw, 140px)",
-          paddingBottom: "48px",
-          textAlign: "center",
-          backgroundColor: "#fdf5f6",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-        }}
-      >
+      <section className="page-hero-blush">
         <AnimateIn>
-          <p
-            style={{
-              fontFamily: "var(--font-dm-sans)",
-              fontSize: "11px",
-              fontWeight: 600,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: "#cd8b91",
-              marginBottom: "16px",
-            }}
-          >
-            Our Work
-          </p>
           <h1
             style={{
-              fontFamily: "var(--font-cormorant)",
-              fontSize: "clamp(40px, 6vw, 72px)",
+              fontFamily: "var(--font-ballet)",
+              fontSize: "clamp(56px, 10vw, 100px)",
               fontWeight: 400,
-              color: "#304254",
+              color: "#cd8b91",
               lineHeight: 1.1,
-              marginBottom: "20px",
             }}
           >
             Portfolio
           </h1>
-          <p
-            style={{
-              fontFamily: "var(--font-dm-sans)",
-              fontSize: "16px",
-              color: "#5a5a5a",
-              lineHeight: 1.75,
-              maxWidth: "520px",
-              margin: "0 auto",
-            }}
-          >
-            A glimpse at the celebrations, florals, and gatherings<br />we have had the honor of bringing to life.
-          </p>
         </AnimateIn>
       </section>
 

@@ -31,15 +31,15 @@ const initialFormData: FormData = {
 };
 
 const eventTypes = [
-  "Wedding",
-  "Bridal Shower",
-  "Baby Shower",
+  "Dinner Party",
   "Birthday Celebration",
-  "Corporate Event",
-  "Rehearsal Dinner",
+  "Baby Shower",
+  "Baptism",
+  "Luncheon",
+  "Cocktail Party",
   "Anniversary Celebration",
   "Holiday Party",
-  "Cocktail Party",
+  "Corporate Event",
   "Other",
 ];
 
@@ -54,11 +54,9 @@ const budgetRanges = [
 ];
 
 const serviceOptions = [
-  "Full-Service Event Planning",
-  "Day-Of Coordination",
-  "Event Design & Styling",
-  "Floral Design",
-  "Bridal Florals",
+  "The Full Celebration (Full-Service Planning)",
+  "The Final Details (Day-Of Coordination)",
+  "The Finishing Touch (Floral Design)",
   "Custom Floral Arrangements",
   "Venue Styling",
 ];
@@ -169,7 +167,7 @@ export default function InquiryPage() {
           >
             ❀
           </div>
-          <h1
+          <h2
             style={{
               fontFamily: "var(--font-cormorant)",
               fontSize: "clamp(36px, 5vw, 52px)",
@@ -180,7 +178,7 @@ export default function InquiryPage() {
             }}
           >
             We Can&apos;t Wait to Connect
-          </h1>
+          </h2>
           <p
             style={{
               fontFamily: "var(--font-dm-sans)",

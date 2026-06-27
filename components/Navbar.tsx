@@ -11,7 +11,6 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/floral-subscription", label: "Floral Club" },
   { href: "/instagram", label: "Instagram" },
 ];
 
@@ -87,7 +86,7 @@ export default function Navbar() {
             }}
           >
             <Image
-              src="/logo-transparent.svg"
+              src="/logo.png"
               alt="The Hosting House NC"
               width={220}
               height={165}
@@ -191,7 +190,7 @@ export default function Navbar() {
         }}
       >
         <Image
-          src="/logo-transparent.svg"
+          src="/logo.png"
           alt="The Hosting House NC"
           width={220}
           height={165}
