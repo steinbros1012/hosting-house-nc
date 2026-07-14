@@ -93,7 +93,7 @@ export default function BackToSchoolFloralsPage() {
               marginBottom: "20px",
             }}
           >
-            Limited Availability &mdash; Summer 2025
+            Limited Availability &mdash; Summer 2026
           </p>
 
           <h1
