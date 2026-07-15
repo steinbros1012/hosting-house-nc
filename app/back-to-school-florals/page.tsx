@@ -4,11 +4,11 @@ import Script from "next/script";
 import AnimateIn from "@/components/AnimateIn";
 
 const PICKUP_DATES = [
-  { label: "Sunday, August 10", value: "2025-08-10" },
-  { label: "Monday, August 18", value: "2025-08-18" },
-  { label: "Saturday, August 23", value: "2025-08-23" },
-  { label: "Saturday, August 30", value: "2025-08-30" },
-  { label: "Sunday, September 7", value: "2025-09-07" },
+  { label: "Monday, August 10", value: "2026-08-10" },
+  { label: "Tuesday, August 18", value: "2026-08-18" },
+  { label: "Sunday, August 23", value: "2026-08-23" },
+  { label: "Sunday, August 30", value: "2026-08-30" },
+  { label: "Monday, September 7", value: "2026-09-07" },
 ];
 
 const inputStyle: React.CSSProperties = {
