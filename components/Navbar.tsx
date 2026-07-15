@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/instagram", label: "Instagram" },
+  { href: "/back-to-school-florals", label: "Teacher Florals" },
 ];
 
 export default function Navbar() {
