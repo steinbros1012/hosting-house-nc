@@ -210,63 +210,61 @@ export default function BackToSchoolFloralsPage() {
             </div>
           </AnimateIn>
 
-          <div
+          <ul
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-              gap: "16px",
+              listStyle: "none",
+              padding: 0,
+              margin: 0,
+              maxWidth: "360px",
+              marginLeft: "auto",
+              marginRight: "auto",
             }}
           >
             {PICKUP_DATES.map((date, i) => (
               <AnimateIn key={date.value} delay={i * 80}>
-                <div
+                <li
                   style={{
-                    textAlign: "center",
-                    padding: "24px 16px",
-                    border: "1px solid #ecdcde",
-                    borderRadius: "4px",
-                    backgroundColor: "#fdf5f6",
+                    display: "flex",
+                    alignItems: "baseline",
+                    gap: "14px",
+                    padding: "10px 0",
+                    borderBottom:
+                      i < PICKUP_DATES.length - 1 ? "1px solid #ecdcde" : "none",
                   }}
                 >
-                  <p
+                  <span
+                    aria-hidden
+                    style={{ color: "#cd8b91", fontSize: "14px", flexShrink: 0 }}
+                  >
+                    ❀
+                  </span>
+                  <span
                     style={{
                       fontFamily: "var(--font-cormorant)",
                       fontSize: "22px",
                       fontWeight: 500,
                       color: "#304254",
-                      lineHeight: 1.2,
-                      marginBottom: "6px",
+                      lineHeight: 1.3,
                     }}
                   >
-                    {date.label.split(", ")[1]}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-dm-sans)",
-                      fontSize: "11px",
-                      fontWeight: 600,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      color: "#cd8b91",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    {date.label.split(", ")[0]}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-dm-sans)",
-                      fontSize: "11px",
-                      color: "#9a9a9a",
-                      letterSpacing: "0.05em",
-                    }}
-                  >
-                    Max 20 spots
-                  </p>
-                </div>
+                    {date.label}
+                  </span>
+                </li>
               </AnimateIn>
             ))}
-          </div>
+          </ul>
+          <p
+            style={{
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: "12px",
+              color: "#9a9a9a",
+              letterSpacing: "0.05em",
+              textAlign: "center",
+              marginTop: "24px",
+            }}
+          >
+            Maximum of 20 arrangements per pick-up date
+          </p>
         </div>
       </section>
 
