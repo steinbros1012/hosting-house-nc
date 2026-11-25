@@ -17,55 +17,55 @@ export const metadata: Metadata = {
 const INSTAGRAM_URL = "https://www.instagram.com/hostinghousenc";
 
 const featured = {
-  src: "/images/instagram/post5.jpg",
-  alt: "Hosting House NC event styling by Meredith and Susanna",
+  src: "/images/instagram/ig-DdRf0DPEe7c.jpg",
+  alt: "Pink and peach roses with white snapdragons in a low glass bowl by The Hosting House NC",
 };
 
 const posts = [
   {
-    src: "/images/instagram/post1.jpg",
-    alt: "Hosting House NC event styling",
-    caption: "The softest shades of pink for a Saturday baby shower.",
+    src: "/images/instagram/ig-DfkRFU0Ogi5.jpg",
+    alt: "White roses and magnolia in a silver urn for Hayes Barton Baptist Church's centennial service",
+    caption: "100 years deserve 100 roses.",
   },
   {
-    src: "/images/instagram/post2.jpg",
-    alt: "Hosting House NC floral design",
-    caption: "When the tablescape does all the talking.",
+    src: "/images/instagram/ig-DePOgY0EbOb.jpg",
+    alt: "Dining table set with blue and white china, tapers, and a rose centerpiece",
+    caption: "This is the season we were named for!",
   },
   {
-    src: "/images/instagram/post3.jpg",
-    alt: "Hosting House NC celebration",
-    caption: "For the host who wanted garden-fresh and effortless.",
+    src: "/images/instagram/ig-DeHevTLEe4t.jpg",
+    alt: "Fall arrangement of peach garden roses, ranunculus, and snapdragons",
+    caption: "There's a chill in the air, and we're leaning all the way in.",
   },
   {
-    src: "/images/instagram/post4.jpg",
-    alt: "Hosting House NC floral arrangement",
-    caption: "Peonies are always the answer. Always.",
+    src: "/images/instagram/ig-DdolIrNEaPI.jpg",
+    alt: "Pink and lavender arrangement in a white planter",
+    caption: "Our answer to a rainy Wednesday.",
   },
   {
-    src: "/images/instagram/post5.jpg",
-    alt: "Hosting House NC reception styling",
-    caption: "There is something magical about candlelight at golden hour.",
+    src: "/images/instagram/ig-DdRf0DPEe7c.jpg",
+    alt: "Pink and peach roses with white snapdragons in a low glass bowl",
+    caption: "The vessel decides the shape — that's why we design to it, not just in it.",
   },
   {
-    src: "/images/instagram/post6.jpg",
-    alt: "Hosting House NC event design",
-    caption: "This one was personal. The bride cried. We all cried.",
+    src: "/images/instagram/ig-DcJUJBCkdXp.jpg",
+    alt: "Meredith and Susanna with the Howdy Darlin' welcome sign at Meredith's 40th birthday dinner",
+    caption: "40 looks good in rhinestones.",
   },
   {
-    src: "/images/instagram/post7.jpg",
-    alt: "Hosting House NC table setting",
-    caption: "Every detail of this dinner party felt just right.",
+    src: "/images/instagram/ig-DaiR5PZtt3C.jpg",
+    alt: "Bright birthday arrangement of garden roses, tulips, and snapdragons",
+    caption: "A birthday surprise with one request: all bright colors, please.",
   },
   {
-    src: "/images/instagram/post9.jpg",
-    alt: "Hosting House NC outdoor gathering",
-    caption: "Summer under the trees. Could not have dreamed it better.",
+    src: "/images/instagram/ig-DadMlu8xKpk.jpg",
+    alt: "Red, white, and blue game day arrangement of hydrangeas and roses",
+    caption: "The patriotism continues! Ready for game day.",
   },
   {
-    src: "/images/instagram/post1.jpg",
-    alt: "Hosting House NC gathering",
-    caption: "Elevated holiday gathering for a group of 30.",
+    src: "/images/instagram/ig-DaXtSPoR9aP.jpg",
+    alt: "Fourth of July cake topped with berries beside a red, white, and blue arrangement",
+    caption: "Turning 250 looks good on you, America!",
   },
 ];
 
